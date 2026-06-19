@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEYEM2K25SODTHI - Dashboard</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --accent-color: #2980b9;
+            --lock-color: #e74c3c;
+            --background-color: #f4f6f7;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(15, 32, 67, 0.85), rgba(27, 55, 100, 0.85));
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .makham-img-box {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            background-color: white;
+        }
+
+        .makham-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        header h1 {
+            margin: 5px 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+        }
+
+        header p {
+            margin: 5px 0 0 0;
+            opacity: 0.95;
+            font-size: 1.15rem;
+            font-weight: 500;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+
+        .admin-lock-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--lock-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        .admin-lock-btn.unlocked {
+            background-color: var(--secondary-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .stat-card.clickable {
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-card.clickable:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #fbfcfc;
+        }
+
+        .stat-card h3 {
+            margin: 0 0 10px 0;
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+
+        .stat-card p {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 100; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.5); 
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto; 
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .popup-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 15px 0 0 0;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .popup-list li {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .popup-list li:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .popup-list li .list-no {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .action-bar {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .action-bar h3 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        .bulk-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+            display: none;
+        }
+
+        .bulk-btn:hover {
+            background-color: #1f618d;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 1.9rem;
+            }
+            .admin-lock-btn {
+                position: static;
+                margin: 10px auto 0 auto;
+                display: block;
+                width: fit-content;
+            }
+        }
+
+        .table-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow-x: auto;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .input-months {
+            width: 60px;
+            padding: 6px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: #f8f9fa;
+        }
+
+        .input-amount {
+            width: 100px;
+            padding: 6px;
+            text-align: right;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            background-color: #f8f9fa;
+        }
+
+        input:disabled, select:disabled {
+            border: none !important;
+            background: transparent !important;
+            color: #333 !important;
+            font-weight: bold;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .winner-select {
+            width: 100%;
+            padding: 6px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 0.95rem;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="makham-img-box">
+            <img src="https://i.postimg.co/7Yn0w9S2/1001547062.jpg" alt="Madavoor CM Makham">
+        </div>
+        <h1>CEYEM2K25SODTHI</h1>
+        <p>ಮಡವೂರು ಸಿ.ಎಂ. ವಲಿಯ್ಯಿಲ್ಲಾಹ್(ಖ) ಸೋಡ್ತಿ ಮತ್ತು ಚೀಟಿ ನಿರ್ವಹಣೆ</p>
+        <button id="lock-btn" class="admin-lock-btn" onclick="toggleAdminMode()">🔒 ಅಡ್ಮಿನ್ ಲಾಗಿನ್</button>
+    </header>
+
+    <div class="stats-grid">
+        <div class="stat-card clickable" onclick="openModal('membersModal')">
+            <h3>ಒಟ್ಟು ಸದಸ್ಯರು 🤝</h3>
+            <p>20 ಜನರು</p>
+            <small style="color:var(--accent-color); font-size: 0.8rem;">(ಹೆಸರು ನೋಡಲು ಕ್ಲಿಕ್ ಮಾಡಿ)</small>
+        </div>
+        <div class="stat-card">
+            <h3>ತಿಂಗಳ ಚಂದಾ</h3>
+            <p>₹ 5,000</p>
+        </div>
+        <div class="stat-card clickable" onclick="openModal('monthsModal')">
+            <h3>ಒಟ್ಟು ಅವಧಿ 📅</h3>
+            <p>20 ತಿಂಗಳು</p>
+            <small style="color:var(--accent-color); font-size: 0.8rem;">(ತಿಂಗಳು ನೋಡಲು ಕ್ಲಿಕ್ ಮಾಡಿ)</small>
+        </div>
+        <div class="stat-card">
+            <h3>ಚೀಟಿ ಮೊತ್ತ</h3>
+            <p>₹ 1,00,000</p>
+        </div>
+    </div>
+
+    <div id="membersModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('membersModal')">&times;</span>
+            <h2 style="margin-bottom: 5px; color: var(--primary-color);">ಚೀಟಿ ಸದಸ್ಯರ ಪಟ್ಟಿ</h2>
+            <p style="margin: 0; color: #7f8c8d; font-size: 0.9rem;">ಒಟ್ಟು ಸದಸ್ಯರು: 20 ಜನರು</p>
+            <ul class="popup-list" id="popup-member-list"></ul>
+        </div>
+    </div>
+
+    <div id="monthsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('monthsModal')">&times;</span>
+            <h2 style="margin-bottom: 5px; color: var(--primary-color);">ಚೀಟಿ ಅವಧಿಯ ತಿಂಗಳುಗಳು</h2>
+            <p style="margin: 0; color: #7f8c8d; font-size: 0.9rem;">ಒಟ್ಟು ಕಾಲಾವಧಿ: 20 ತಿಂಗಳು</p>
+            <ul class="popup-list" id="popup-months-list"></ul>
+        </div>
+    </div>
+
+    <div class="action-bar">
+        <div>
+            <h3>ಪ್ರಸ್ತುತ ಸ್ಥಿತಿ: <span style="color:var(--secondary-color);" id="status-text">ವೀಕ್ಷಣೆ ಮೋಡ್ (Read Only)</span></h3>
+        </div>
+        <button id="bulk-action-btn" class="bulk-btn" onclick="incrementAllMonths()">ಎಲ್ಲಾ ಸದಸ್ಯರಿಗೂ +1 ತಿಂಗಳು ಹೆಚ್ಚಿಸಿ</button>
+    </div>
+
+    <div class="main-content">
+        <div class="table-container">
+            <h2>ಸದಸ್ಯರ ಪಾವತಿ ವಿವರಗಳು</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 8%;">ಕ್ರ.ಸಂ.</th>
+                        <th>ಸದಸ್ಯರ ಹೆಸರು</th>
+                        <th style="width: 25%;">ಕಟ್ಟಿದ ತಿಂಗಳುಗಳು</th>
+                        <th style="width: 30%;">ಒಟ್ಟು ಪಾವತಿಸಿದ ಮೊತ್ತ (₹)</th>
+                    </tr>
+                </thead>
+                <tbody id="member-rows"></tbody>
+            </table>
+        </div>
+
+        <div class="table-container">
+            <h2>ಸೋಡ್ತಿ ಹಾರಿದವರ ಪಟ್ಟಿ</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 45%;">ತಿಂಗಳು</th>
+                        <th>ಸೋಡ್ತಿ ವಿಜೇತರು</th>
+                    </tr>
+                </thead>
+                <tbody id="winner-rows"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    const ADMIN_PASSWORD = "1234"; 
+    let isAdmin = false;
+
+    const members = [
+        "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", "ಮುಸ್ತಾಕ್ ಎ", "ಸಲೀಂ ಜಿ", "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ",
+        "ಸಾದಿಕ್ ನ‌ಈಮಿ", "ಶಮ್ನಾ ಫಾತಿಮಾ", "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", "ಮಶೂರ್ ಪಿ", "ಮುಸ್ತಫಾ Hh",
+        "ರಾಶಿದ್ ಪಿ", "ಹೈದರ್ ഉദ്ദಬೆಟ್ಟು", "ಆಸಿಫ್ ಕೆ", "ಹಮೀದ್ ಉಸ್ತಾದ್", "ರಾಶಿದ್ ಪಿ",
+        "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", "ಅನ್ಸಾರ್ ಟಿ ಎ", "ಅನ್ಸಾರ್ ಟಿ ಎ", "ಆಸಿಫ್ ಕೆ"
+    ];
+
+    const monthNames = [
+        "ಆಗಸ್ಟ್ 2025", "ಸೆಪ್ಟೆಂಬರ್ 2025", "ಅಕ್ಟೋಬರ್ 2025", "ನವೆಂಬರ್ 2025", "ಡಿಸೆಂಬರ್ 2025",
+        "ಜನವರಿ 2026", "ಫೆಬ್ರವರಿ 2026", "ಮಾರ್ಚ್ 2026", "ಏಪ್ರಿಲ್ 2026", "ಮೇ 2026",
+        "ಜೂನ್ 2026", "ಜುಲೈ 2026", "ಆಗಸ್ಟ್ 2026", "ಸೆಪ್ಟೆಂಬರ್ 2026", "ಅಕ್ಟೋಬರ್ 2026",
+        "ನವೆಂಬರ್ 2026", "ಡಿಸೆಂಬರ್ 2026", "ಜನವರಿ 2027", "ಫೆಬ್ರವರಿ 2027", "ಮಾರ್ಚ್ 2027"
+    ];
+
+    const monthlyAmount = 5000;
+    const totalMonths = 20;
+
+    const tableBody = document.getElementById('member-rows');
+    const winnerTableBody = document.getElementById('winner-rows');
+
+    const popupMemberList = document.getElementById('popup-member-list');
+    members.forEach((name, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${name}</span> <span class="list-no">#${index + 1}</span>`;
+        popupMemberList.appendChild(li);
+    });
+
+    const popupMonthsList = document.getElementById('popup-months-list');
+    monthNames.forEach((month, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${month}</span> <span class="list-no">ತಿಂಗಳು ${index + 1}</span>`;
+        popupMonthsList.appendChild(li);
+    });
+
+    function openModal(modalId) { document.getElementById(modalId).style.display = "block"; }
+    function closeModal(modalId) { document.getElementById(modalId).style.display = "none"; }
+    window.onclick = function(event) { if (event.target.classList.contains('modal')) { event.target.style.display = "none"; } }
+
+    let savedPayments = JSON.parse(localStorage.getItem('sodthi_payments_v2')) || {};
+    
+    // ಇಲ್ಲಿ 11 ತಿಂಗಳ ವಿಜೇತರನ್ನು ಖಾಯಂ ಆಗಿ ಹಾರ್ಡ್‌ಕೋಡ್ ಮಾಡಲಾಗಿದೆ
+    let defaultWinners = {
+        "month_1": "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ (1)",
+        "month_2": "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್ (16)",
+        "month_3": "ಹಮೀದ್ ಉಸ್ತಾದ್ (14)",
+        "month_4": "ರಾಶಿದ್ ಪಿ (11)",
+        "month_5": "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್ (8)",
+        "month_6": "ಆಸಿಫ್ ಕೆ (13)",
+        "month_7": "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ (5)",
+        "month_8": "ಸಲೀಂ ಜಿ (4)",
+        "month_9": "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ (2)",
+        "month_10": "ಅನ್ಸಾರ್ ಟಿ ಎ (18)",
+        "month_11": "ಮಶೂರ್ ಪಿ (9)"
+    };
+    
+    let savedWinners = JSON.parse(localStorage.getItem('sodthi_winners')) || defaultWinners;
+    
+    // ಹೊಸ ವಿಜೇತರ ಹೆಸರುಗಳು ಹಳೆಯ ಡೇಟಾದೊಂದಿಗೆ ವಿಲೀನವಾಗಲು (Merge)
+    savedWinners = Object.assign({}, defaultWinners, savedWinners);
+    localStorage.setItem('sodthi_winners', JSON.stringify(savedWinners));
+
+    members.forEach((name, index) => {
+        const memberId = 'member_' + index;
+        const row = document.createElement('tr');
+
+        const sNoTd = document.createElement('td'); sNoTd.textContent = index + 1; row.appendChild(sNoTd);
+        const nameTd = document.createElement('td'); nameTd.textContent = name; row.appendChild(nameTd);
+
+        const monthTd = document.createElement('td');
+        const monthInput = document.createElement('input');
+        monthInput.type = 'number'; monthInput.className = 'input-months admin-field';
+        monthInput.id = 'input_month_' + memberId; monthInput.min = 0; monthInput.max = totalMonths; monthInput.disabled = true; 
+        
+        const initialMonths = savedPayments[memberId] !== undefined ? savedPayments[memberId].months : 11;
+        monthInput.value = initialMonths; monthTd.appendChild(monthInput); row.appendChild(monthTd);
+
+        const amountTd = document.createElement('td');
+        const amountInput = document.createElement('input');
+        amountInput.type = 'number'; amountInput.className = 'input-amount admin-field';
+        amountInput.id = 'input_amount_' + memberId; amountInput.disabled = true; 
+        
+        const initialAmount = savedPayments[memberId] !== undefined ? savedPayments[memberId].amount : (initialMonths * monthlyAmount);
+        amountInput.value = initialAmount; amountTd.appendChild(amountInput); row.appendChild(amountTd);
+
+        if(savedPayments[memberId] === undefined) { savedPayments[memberId] = { months: initialMonths, amount: initialAmount }; }
+
+        monthInput.addEventListener('input', function() {
+            let mVal = parseInt(this.value) || 0;
+            if(mVal > totalMonths) { mVal = totalMonths; this.value = totalMonths; }
+            if(mVal < 0) { mVal = 0; this.value = 0; }
+            let aVal = mVal * monthlyAmount; amountInput.value = aVal; saveData(memberId, mVal, aVal);
+        });
+
+        amountInput.addEventListener('input', function() {
+            let aVal = parseInt(this.value) || 0; let mVal = parseInt(monthInput.value) || 0; saveData(memberId, mVal, aVal);
+        });
+        tableBody.appendChild(row);
+    });
+    
+    localStorage.setItem('sodthi_payments_v2', JSON.stringify(savedPayments));
+    function saveData(memberId, months, amount) { savedPayments[memberId] = { months: months, amount: amount }; localStorage.setItem('sodthi_payments_v2', JSON.stringify(savedPayments)); }
+
+    function incrementAllMonths() {
+        if(!isAdmin) return;
+        if(confirm("ಎಲ್ಲಾ ಸದಸ್ಯರಿಗೂ 1 ತಿಂಗಳು ಮತ್ತು ₹5,000 ಮೊತ್ತವನ್ನು ಹೆಚ್ಚಿಸಬೇಕೇ?")) {
+            members.forEach((name, index) => {
+                const memberId = 'member_' + index;
+                const mInput = document.getElementById('input_month_' + memberId);
+                const aInput = document.getElementById('input_amount_' + memberId);
+                let curMonths = parseInt(mInput.value) || 0; let curAmount = parseInt(aInput.value) || 0;
+                if(curMonths < totalMonths) { curMonths += 1; curAmount += monthlyAmount; mInput.value = curMonths; aInput.value = curAmount; saveData(memberId, curMonths, curAmount); }
+            });
+        }
+    }
+
+    for (let m = 1; m <= totalMonths; m++) {
+        const row = document.createElement('tr');
+        const monthTd = document.createElement('td'); monthTd.innerHTML = `<b>ತಿಂಗಳು ${m}</b> <br><small style="color:#7f8c8d;">(${monthNames[m-1]})</small>`; row.appendChild(monthTd);
+
+        const winnerTd = document.createElement('td');
+        const select = document.createElement('select'); select.className = 'winner-select admin-field'; select.disabled = true; 
+        const defaultOpt = document.createElement('option'); defaultOpt.value = ""; defaultOpt.textContent = "-- ಆಯ್ಕೆ ಮಾಡಿ --"; select.appendChild(defaultOpt);
+
+        members.forEach((name, idx) => {
+            const opt = document.createElement('option'); opt.value = `${name} (${idx + 1})`; opt.textContent = `${idx + 1}. ${name}`; select.appendChild(opt);
+        });
+
+        if (savedWinners[`month_${m}`]) { select.value = savedWinners[`month_${m}`]; }
+        select.addEventListener('change', function() { savedWinners[`month_${m}`] = this.value; localStorage.setItem('sodthi_winners', JSON.stringify(savedWinners)); });
+
+        winnerTd.appendChild(select); row.appendChild(winnerTd); winnerTableBody.appendChild(row);
+    }
+
+    function toggleAdminMode() {
+        if (!isAdmin) {
+            const password = prompt("ಅಡ್ಮಿನ್ ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ:");
+            if (password === ADMIN_PASSWORD) {
+                isAdmin = true;
+                document.getElementById('lock-btn').textContent = "🔓 ಅಡ್ಮಿನ್ ಔಟ್ (Lock)";
+                document.getElementById('lock-btn').classList.add('unlocked');
+                document.getElementById('status-text').textContent = "ಅಡ್ಮಿನ್ ಮೋಡ್ ಸಕ್ರಿಯವಾಗಿದೆ (Editable)";
+                document.getElementById('bulk-action-btn').style.display = "block";
+                document.querySelectorAll('.admin-field').forEach(field => field.disabled = false);
+            } else if (password !== null) { alert("ತಪ್ಪು ಪಾಸ್‌ವರ್ಡ್!"); }
+        } else {
+            isAdmin = false;
+            document.getElementById('lock-btn').textContent = "🔒 ಅಡ್ಮಿನ್ ಲಾಗಿನ್";
+            document.getElementById('lock-btn').classList.remove('unlocked');
+            document.getElementById('status-text').textContent = "ವೀಕ್ಷಣೆ ಮೋಡ್ (Read Only)";
+            document.getElementById('bulk-action-btn').style.display = "none";
+            document.querySelectorAll('.admin-field').forEach(field => field.disabled = true);
+        }
+    }
+</script>
+</body>
+</html>
