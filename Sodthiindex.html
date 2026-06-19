@@ -12,6 +12,7 @@
             --lock-color: #e74c3c;
             --background-color: #f4f6f7;
             --text-color: #333;
+            --whatsapp-color: #25D366;
         }
 
         body {
@@ -333,6 +334,42 @@
             font-size: 0.95rem;
             background-color: #fff;
         }
+
+        /* WhatsApp Section Style */
+        .whatsapp-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-top: 10px;
+            border-bottom: 4px solid var(--whatsapp-color);
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--whatsapp-color);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-icon {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
     </style>
 </head>
 <body>
@@ -409,17 +446,27 @@
             </table>
         </div>
 
-        <div class="table-container">
-            <h2>ಸೋಡ್ತಿ ಹಾರಿದವರ ಪಟ್ಟಿ</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th style="width: 45%;">ತಿಂಗಳು</th>
-                        <th>ಸೋಡ್ತಿ ವಿಜೇತರು</th>
-                    </tr>
-                </thead>
-                <tbody id="winner-rows"></tbody>
-            </table>
+        <div>
+            <div class="table-container">
+                <h2>ಸೋಡ್ತಿ ಹಾರಿದವರ ಪಟ್ಟಿ</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 45%;">ತಿಂಗಳು</th>
+                            <th>ಸೋಡ್ತಿ ವಿಜೇತರು</th>
+                        </tr>
+                    </thead>
+                    <tbody id="winner-rows"></tbody>
+                </table>
+            </div>
+
+            <div class="whatsapp-section">
+                <h3 style="margin: 0 0 8px 0; color: var(--primary-color); font-size: 1.1rem;">ಸಹಾಯ ಮತ್ತು ಸಂಪರ್ಕ 📞</h3>
+                <p style="margin: 0 0 12px 0; color: #7f8c8d; font-size: 0.9rem;">ಪಾವತಿ ವಿವರಗಳಲ್ಲಿ ಅಥವಾ ಹೆಸರಿನಲ್ಲಿ ಏನಾದರೂ ತಿದ್ದುಪಡಿ ಇದ್ದಲ್ಲಿ ಅಡ್ಮಿನ್ ರನ್ನು ನೇರವಾಗಿ ಸಂಪರ್ಕಿಸಿ.</p>
+                <a id="whatsapp-link" href="#" target="_blank" class="whatsapp-btn">
+                    <span class="whatsapp-icon">💬</span> ವಾಟ್ಸಾಪ್ ಮೂಲಕ ಸಂಪರ್ಕಿಸಿ
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -428,10 +475,15 @@
     const ADMIN_PASSWORD = "1234"; 
     let isAdmin = false;
 
+    // 📱 ನಿಮ್ಮ ಹೊಸ ವಾಟ್ಸಾಪ್ ನಂಬರ್ ಅನ್ನು ಇಲ್ಲಿ ಅಪ್ಡೇಟ್ ಮಾಡಲಾಗಿದೆ
+    const WHATSAPP_NUMBER = "918277614329"; 
+    const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿ ವಿವರಗಳ ಕುರಿತು ಮಾತನಾಡಬೇಕಾಗಿದೆ.");
+    document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
+
     const members = [
         "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", "ಮುಸ್ತಾಕ್ ಎ", "ಸಲೀಂ ಜಿ", "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ",
         "ಸಾದಿಕ್ ನ‌ಈಮಿ", "ಶಮ್ನಾ ಫಾತಿಮಾ", "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", "ಮಶೂರ್ ಪಿ", "ಮುಸ್ತಫಾ Hh",
-        "ರಾಶಿದ್ ಪಿ", "ಹೈದರ್ ഉദ്ദಬೆಟ್ಟು", "ಆಸಿಫ್ ಕೆ", "ಹಮೀದ್ ಉಸ್ತಾದ್", "ರಾಶಿದ್ ಪಿ",
+        "ರಾಶಿದ್ ಪಿ", "ಹೈದರ್ ഉദ്ദಬെಟ್ಟು", "ಆಸಿಫ್ ಕೆ", "ಹಮೀದ್ ಉಸ್ತಾದ್", "ರಾಶಿದ್ ಪಿ",
         "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", "ಅನ್ಸಾರ್ ಟಿ ಎ", "ಅನ್ಸಾರ್ ಟಿ ಎ", "ಆಸಿಫ್ ಕೆ"
     ];
 
@@ -468,7 +520,6 @@
 
     let savedPayments = JSON.parse(localStorage.getItem('sodthi_payments_v2')) || {};
     
-    // ಇಲ್ಲಿ 11 ತಿಂಗಳ ವಿಜೇತರನ್ನು ಖಾಯಂ ಆಗಿ ಹಾರ್ಡ್‌ಕೋಡ್ ಮಾಡಲಾಗಿದೆ
     let defaultWinners = {
         "month_1": "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ (1)",
         "month_2": "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್ (16)",
@@ -484,8 +535,6 @@
     };
     
     let savedWinners = JSON.parse(localStorage.getItem('sodthi_winners')) || defaultWinners;
-    
-    // ಹೊಸ ವಿಜೇತರ ಹೆಸರುಗಳು ಹಳೆಯ ಡೇಟಾದೊಂದಿಗೆ ವಿಲೀನವಾಗಲು (Merge)
     savedWinners = Object.assign({}, defaultWinners, savedWinners);
     localStorage.setItem('sodthi_winners', JSON.stringify(savedWinners));
 
@@ -532,7 +581,7 @@
 
     function incrementAllMonths() {
         if(!isAdmin) return;
-        if(confirm("ಎಲ್ಲಾ ಸದಸ್ಯರಿಗೂ 1 ತಿಂಗಳು ಮತ್ತು ₹5,000 ಮೊತ್ತವನ್ನು ಹೆಚ್ಚಿಸಬೇಕೇ?")) {
+        if(confirm("ಎಲ್ಲಾ ಸದಸ್ಯರಿಗೂ 1 ತಿಂಗಳು ಮತ್ತು ₹5,000稳ತ್ತವನ್ನು ಹೆಚ್ಚಿಸಬೇಕೇ?")) {
             members.forEach((name, index) => {
                 const memberId = 'member_' + index;
                 const mInput = document.getElementById('input_month_' + memberId);
