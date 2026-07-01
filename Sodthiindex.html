@@ -26,6 +26,7 @@
             padding: 15px;
             color: var(--text-main);
             -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -117,7 +118,7 @@
             100% { box-shadow: 0 0 0 0 rgba(46, 196, 182, 0); }
         }
 
-        /* Stats Grid */
+        /* Stats Grid & Box Styling */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -133,7 +134,20 @@
             display: flex;
             align-items: center;
             gap: 18px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .stat-box.clickable {
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+            border-color: rgba(31, 64, 104, 0.1);
         }
 
         .stat-icon {
@@ -146,7 +160,55 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s ease;
+            perspective: 1000px; /* 3D ಎಫೆಕ್ಟ್‌ಗಾಗಿ */
         }
+
+        /* ========================================================
+           ನಾಲ್ಕು ಚಿತ್ರಗಳ (Emojis) ಪ್ರತ್ಯೇಕ ಆನಿಮೇಷನ್ ನಿಯಮಗಳು (CSS)
+           ======================================================== */
+        
+        /* 1. ಹ್ಯಾಂಡ್‌ಶೇಕ್ ಆನಿಮೇಷನ್ (🤝) */
+        .stat-box:nth-child(1):hover .stat-icon {
+            animation: shakeHand 0.6s ease-in-out infinite alternate;
+            background: #eef2ff;
+        }
+        @keyframes shakeHand {
+            0% { transform: rotate(-8deg) scale(1.05); }
+            100% { transform: rotate(8deg) scale(1.05); }
+        }
+
+        /* 2. ಕಾಯಿನ್ 3D ರೊಟೇಷನ್ ಆನಿಮೇಷನ್ (🪙) */
+        .stat-box:nth-child(2):hover .stat-icon {
+            animation: spinCoin 0.8s linear infinite;
+            background: #fffbeb;
+        }
+        @keyframes spinCoin {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        /* 3. ಗ್ರಾಫ್ ಜಂಪ್/ಪಲ್ಸ್ ಆನಿಮೇಷನ್ (📈) */
+        .stat-box:nth-child(3):hover .stat-icon {
+            animation: pulseGraph 0.6s ease-in-out infinite alternate;
+            background: #f0fdf4;
+        }
+        @keyframes pulseGraph {
+            0% { transform: scale(1) translateY(0); }
+            100% { transform: scale(1.15) translateY(-5px); }
+        }
+
+        /* 4. ಡೈಮಂಡ್ ಗ್ಲೋ ಮತ್ತು ಶೈನ್ ಆನಿಮೇಷನ್ (💎) */
+        .stat-box:nth-child(4):hover .stat-icon {
+            animation: shineDiamond 0.7s ease-in-out infinite alternate;
+            background: #ecfeff;
+        }
+        @keyframes shineDiamond {
+            0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(0, 180, 216, 0)); }
+            100% { transform: scale(1.18); filter: drop-shadow(0 0 10px rgba(0, 180, 216, 0.6)) brightness(1.2); }
+        }
+
+        /* ======================================================== */
 
         .stat-info h3 {
             margin: 0;
@@ -156,7 +218,7 @@
 
         .stat-info p {
             margin: 4px 0 0 0;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: var(--primary);
         }
@@ -263,17 +325,16 @@
             justify-content: space-between;
         }
 
-        /* ಫೋನ್‌ನಲ್ಲಿ ಹೆಸರನ್ನು ಸೆಂಟರ್ ಮಾಡಲು ಮೀಡಿಯಾ ಕ್ವೆರಿ */
         @media (max-width: 480px) {
             .member-item {
                 flex-direction: column;
-                align-items: center; /* ಇಡೀ ಕಂಟೆಂಟ್ ಸೆಂಟರ್ ಮಾಡುತ್ತದೆ */
+                align-items: center;
                 padding: 15px;
                 text-align: center;
             }
             .member-left {
                 flex-direction: row;
-                justify-content: center; /* ಸಂಖ್ಯೆ ಮತ್ತು ಹೆಸರನ್ನು ಸೆಂಟರ್ ಮಾಡುತ್ತದೆ */
+                justify-content: center;
                 width: 100%;
             }
             .member-name {
@@ -284,7 +345,7 @@
                 margin-top: 5px;
                 padding-top: 10px;
                 border-top: 1px dashed #e2e8f0;
-                justify-content: space-between; /* ಬ್ಯಾಡ್ಜ್ ಮತ್ತು ಅಮೌಂಟ್ ಮೊದಲಿನಂತೆಯೇ ಇರುತ್ತದೆ */
+                justify-content: space-between;
             }
         }
 
@@ -435,15 +496,15 @@
         <span style="color: var(--live-color); font-size: 0.9rem;">● Running Month</span>
     </div>
 
-    <!-- Stats Overview -->
+    <!-- Stats Overview (With Premium Animated Icons) -->
     <div class="stats-container">
-        <div class="stat-box">
+        <a href="#members-section" class="stat-box clickable">
             <div class="stat-icon">🤝</div>
             <div class="stat-info">
                 <h3>ಒಟ್ಟು ಸದಸ್ಯರು</h3>
                 <p>20 ಜನರು</p>
             </div>
-        </div>
+        </a>
         <div class="stat-box">
             <div class="stat-icon">🪙</div>
             <div class="stat-info">
@@ -455,7 +516,7 @@
             <div class="stat-icon">📈</div>
             <div class="stat-info">
                 <h3>ಪ್ರಸ್ತುತ ಅವಧಿ</h3>
-                <p>ತಿಂಗಳು 12 / 20</p>
+                <p>ತಿಂಗಳು 12 / 20 ತಿಂಗಳುಗಳು</p>
             </div>
         </div>
         <div class="stat-box">
@@ -470,7 +531,7 @@
     <!-- Master Layout Grid -->
     <div class="layout-grid">
         <!-- Members Payments Grid -->
-        <div class="section-card">
+        <div class="section-card" id="members-section">
             <h2>ಸದಸ್ಯರ ಚಂದಾ ಪಾವತಿ ವಿವರಗಳು</h2>
             <div class="member-list" id="member-container"></div>
         </div>
@@ -499,6 +560,7 @@
     const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿ ವಿವರವನ್ನು ಅಪ್ಡೇಟ್ ಮಾಡಬೇಕಾಗಿದೆ.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
+    // ಮೂಲ ಪಟ್ಟಿ (ಯಾವುದೇ ಬದಲಾವಣೆ ಇಲ್ಲ)
     const memberData = [
         { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidJuly: false },
         { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidJuly: true },
