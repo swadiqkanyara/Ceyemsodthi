@@ -9,7 +9,7 @@
             --primary-color: #2c3e50;
             --secondary-color: #27ae60;
             --accent-color: #2980b9;
-            --lock-color: #e74c3c;
+            --pending-color: #e67e22;
             --background-color: #f4f6f7;
             --text-color: #333;
             --whatsapp-color: #25D366;
@@ -36,7 +36,6 @@
             border-radius: 10px;
             margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            position: relative;
         }
 
         .makham-img-box {
@@ -71,26 +70,6 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
         }
 
-        .admin-lock-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: var(--lock-color);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            z-index: 10;
-        }
-
-        .admin-lock-btn.unlocked {
-            background-color: var(--secondary-color);
-        }
-
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -107,17 +86,6 @@
             border-top: 4px solid var(--secondary-color);
         }
 
-        .stat-card.clickable {
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .stat-card.clickable:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background-color: #fbfcfc;
-        }
-
         .stat-card h3 {
             margin: 0 0 10px 0;
             color: #7f8c8d;
@@ -129,110 +97,6 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--primary-color);
-        }
-
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 100; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.5); 
-            backdrop-filter: blur(3px);
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 10% auto; 
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(-20px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-
-        .close-btn {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close-btn:hover,
-        .close-btn:focus {
-            color: #333;
-            text-decoration: none;
-        }
-
-        .popup-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 15px 0 0 0;
-            max-height: 350px;
-            overflow-y: auto;
-        }
-
-        .popup-list li {
-            padding: 10px 15px;
-            border-bottom: 1px solid #eee;
-            font-size: 1.1rem;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .popup-list li:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        .popup-list li .list-no {
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        .action-bar {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .action-bar h3 {
-            margin: 0;
-            color: var(--primary-color);
-        }
-
-        .bulk-btn {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.2s;
-            display: none;
-        }
-
-        .bulk-btn:hover {
-            background-color: #1f618d;
         }
 
         .main-content {
@@ -247,12 +111,6 @@
             }
             header h1 {
                 font-size: 1.9rem;
-            }
-            .admin-lock-btn {
-                position: static;
-                margin: 10px auto 0 auto;
-                display: block;
-                width: fit-content;
             }
         }
 
@@ -294,55 +152,35 @@
             background-color: #f9f9f9;
         }
 
-        .input-months {
-            width: 60px;
-            padding: 6px;
-            text-align: center;
-            border: 1px solid #ccc;
+        .badge-paid {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 4px 8px;
             border-radius: 4px;
-            font-size: 1rem;
-            background-color: #f8f9fa;
-        }
-
-        .input-amount {
-            width: 100px;
-            padding: 6px;
-            text-align: right;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: bold;
-            color: var(--secondary-color);
-            background-color: #f8f9fa;
         }
 
-        input:disabled, select:disabled {
-            border: none !important;
-            background: transparent !important;
-            color: #333 !important;
-            font-weight: bold;
-            outline: none;
-            appearance: none;
-            -webkit-appearance: none;
-        }
-
-        .winner-select {
-            width: 100%;
-            padding: 6px;
+        .badge-pending {
+            background-color: var(--pending-color);
+            color: white;
+            padding: 4px 8px;
             border-radius: 4px;
-            border: 1px solid #ccc;
-            font-size: 0.95rem;
-            background-color: #fff;
+            font-size: 0.85rem;
+            font-weight: bold;
         }
 
-        /* WhatsApp Section Style */
+        .text-amount {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
         .whatsapp-section {
             background: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             text-align: center;
-            margin-top: 10px;
             border-bottom: 4px solid var(--whatsapp-color);
         }
 
@@ -357,13 +195,12 @@
             font-weight: bold;
             border-radius: 30px;
             box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s;
             margin-top: 10px;
         }
 
         .whatsapp-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
         }
 
         .whatsapp-icon {
@@ -381,23 +218,20 @@
         </div>
         <h1>CEYEM2K25SODTHI</h1>
         <p>ಮಡವೂರು ಸಿ.ಎಂ. ವಲಿಯ್ಯಿಲ್ಲಾಹ್(ಖ) ಸೋಡ್ತಿ ಮತ್ತು ಚೀಟಿ ನಿರ್ವಹಣೆ</p>
-        <button id="lock-btn" class="admin-lock-btn" onclick="toggleAdminMode()">🔒 ಅಡ್ಮಿನ್ ಲಾಗಿನ್</button>
     </header>
 
     <div class="stats-grid">
-        <div class="stat-card clickable" onclick="openModal('membersModal')">
+        <div class="stat-card">
             <h3>ಒಟ್ಟು ಸದಸ್ಯರು 🤝</h3>
             <p>20 ಜನರು</p>
-            <small style="color:var(--accent-color); font-size: 0.8rem;">(ಹೆಸರು ನೋಡಲು ಕ್ಲಿಕ್ ಮಾಡಿ)</small>
         </div>
         <div class="stat-card">
             <h3>ತಿಂಗಳ ಚಂದಾ</h3>
             <p>₹ 5,000</p>
         </div>
-        <div class="stat-card clickable" onclick="openModal('monthsModal')">
-            <h3>ಒಟ್ಟು ಅವಧಿ 📅</h3>
-            <p>20 ತಿಂಗಳು</p>
-            <small style="color:var(--accent-color); font-size: 0.8rem;">(ತಿಂಗಳು ನೋಡಲು ಕ್ಲಿಕ್ ಮಾಡಿ)</small>
+        <div class="stat-card">
+            <h3>ಪ್ರಸ್ತುತ ಅವಧಿ 📅</h3>
+            <p>ಜುಲೈ 2026 (ತಿಂಗಳು 12)</p>
         </div>
         <div class="stat-card">
             <h3>ಚೀಟಿ ಮೊತ್ತ</h3>
@@ -405,40 +239,15 @@
         </div>
     </div>
 
-    <div id="membersModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('membersModal')">&times;</span>
-            <h2 style="margin-bottom: 5px; color: var(--primary-color);">ಚೀಟಿ ಸದಸ್ಯರ ಪಟ್ಟಿ</h2>
-            <p style="margin: 0; color: #7f8c8d; font-size: 0.9rem;">ಒಟ್ಟು ಸದಸ್ಯರು: 20 ಜನರು</p>
-            <ul class="popup-list" id="popup-member-list"></ul>
-        </div>
-    </div>
-
-    <div id="monthsModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('monthsModal')">&times;</span>
-            <h2 style="margin-bottom: 5px; color: var(--primary-color);">ಚೀಟಿ ಅವಧಿಯ ತಿಂಗಳುಗಳು</h2>
-            <p style="margin: 0; color: #7f8c8d; font-size: 0.9rem;">ಒಟ್ಟು ಕಾಲಾವಧಿ: 20 ತಿಂಗಳು</p>
-            <ul class="popup-list" id="popup-months-list"></ul>
-        </div>
-    </div>
-
-    <div class="action-bar">
-        <div>
-            <h3>ಪ್ರಸ್ತುತ ಸ್ಥಿತಿ: <span style="color:var(--secondary-color);" id="status-text">ವೀಕ್ಷಣೆ ಮೋಡ್ (Read Only)</span></h3>
-        </div>
-        <button id="bulk-action-btn" class="bulk-btn" onclick="incrementAllMonths()">ಎಲ್ಲಾ ಸದಸ್ಯರಿಗೂ +1 ತಿಂಗಳು ಹೆಚ್ಚಿಸಿ</button>
-    </div>
-
     <div class="main-content">
         <div class="table-container">
-            <h2>ಸದಸ್ಯರ ಪಾವತಿ ವಿವರಗಳು</h2>
+            <h2>ಸದಸ್ಯರ ಜುಲೈ ತಿಂಗಳ ಪಾವತಿ ವಿವರಗಳು</h2>
             <table>
                 <thead>
                     <tr>
                         <th style="width: 8%;">ಕ್ರ.ಸಂ.</th>
                         <th>ಸದಸ್ಯರ ಹೆಸರು</th>
-                        <th style="width: 25%;">ಕಟ್ಟಿದ ತಿಂಗಳುಗಳು</th>
+                        <th style="width: 25%;">ಜುಲೈ ಸ್ಥಿತಿ</th>
                         <th style="width: 30%;">ಒಟ್ಟು ಪಾವತಿಸಿದ ಮೊತ್ತ (₹)</th>
                     </tr>
                 </thead>
@@ -462,9 +271,9 @@
 
             <div class="whatsapp-section">
                 <h3 style="margin: 0 0 8px 0; color: var(--primary-color); font-size: 1.1rem;">ಸಹಾಯ ಮತ್ತು ಸಂಪರ್ಕ 📞</h3>
-                <p style="margin: 0 0 12px 0; color: #7f8c8d; font-size: 0.9rem;">ಪಾವತಿ ವಿವರಗಳಲ್ಲಿ ಅಥವಾ ಹೆಸರಿನಲ್ಲಿ ಏನಾದರೂ ತಿದ್ದುಪಡಿ ಇದ್ದಲ್ಲಿ ಅಡ್ಮಿನ್ ರನ್ನು ನೇರವಾಗಿ ಸಂಪರ್ಕಿಸಿ.</p>
+                <p style="margin: 0 0 12px 0; color: #7f8c8d; font-size: 0.9rem;">ಪಾವತಿ ವಿವರಗಳಲ್ಲಿ ಏನಾದರೂ ತಿದ್ದುಪಡಿ ಇದ್ದಲ್ಲಿ ಅಡ್ಮಿನ್ ರನ್ನು ನೇರವಾಗಿ ಸಂಪರ್ಕಿಸಿ.</p>
                 <a id="whatsapp-link" href="#" target="_blank" class="whatsapp-btn">
-                    <span class="whatsapp-icon">💬</span> ವಾಟ್ಸಾಪ್ ಮೂಲಕ ಸಂಪರ್ಕಿಸಿ
+                    <span class="whatsapp-icon">💬</span> ವಾಟ್ಸಾಪ್ ಮೂಲಕ ತಿಳಿಸಿ
                 </a>
             </div>
         </div>
@@ -472,163 +281,92 @@
 </div>
 
 <script>
-    const ADMIN_PASSWORD = "1234"; 
-    let isAdmin = false;
-
     const WHATSAPP_NUMBER = "918277614329"; 
-    const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿ ವಿವರಗಳ ಕುರಿತು ಮಾತನಾಡಬೇಕಾಗಿದೆ.");
+    const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿ ವಿವರವನ್ನು ಅಪ್ಡೇಟ್ ಮಾಡಬೇಕಾಗಿದೆ.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // 10 ಮತ್ತು 12ನೇ ಸದಸ್ಯರ ಹೆಸರನ್ನು ಸರಿಪಡಿಸಲಾಗಿದೆ
-    const members = [
-        "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", "ಮುಸ್ತಾಕ್ ಎ", "ಸಲೀಂ ಜಿ", "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ",
-        "ಸಾದಿಕ್ ನ‌ಈಮಿ", "ಶಮ್ನಾ ಫಾತಿಮಾ", "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", "ಮಶೂರ್ ಪಿ", "ಮುಸ್ತಫಾ ಹಿಕಮಿ",
-        "ರಾಶಿದ್ ಪಿ", "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", "ಆಸಿಫ್ ಕೆ", "ಹಮೀದ್ ಉಸ್ತಾದ್", "ರಾಶಿದ್ ಪಿ",
-        "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", "ಅನ್ಸಾರ್ ಟಿ ಎ", "ಅನ್ಸಾರ್ ಟಿ ಎ", "ಆಸಿಫ್ ಕೆ"
+    // ನೀವು ಕಳುಹಿಸಿದ ಪಟ್ಟಿಯ ಪ್ರಕಾರ ಜುಲೈ ತಿಂಗಳ ನಿಖರ ಪಾವತಿ ಸ್ಥಿತಿ (Paid = true, Pending = false)
+    const memberData = [
+        { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidJuly: true },
+        { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidJuly: true },
+        { name: "ಮುಸ್ತಾಕ್ ಎ", paidJuly: false },
+        { name: "ಸಲೀಂ ಜಿ", paidJuly: true },
+        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidJuly: true },
+        { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidJuly: false },
+        { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidJuly: false },
+        { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidJuly: true },
+        { name: "ಮಶೂರ್ ಪಿ", paidJuly: true },
+        { name: "ಮುಸ್ತಫಾ Hh", paidJuly: false },
+        { name: "ರಾಶಿದ್ ಪಿ", paidJuly: true },
+        { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidJuly: false },
+        { name: "ಆಸಿಫ್ ಕೆ", paidJuly: true },
+        { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidJuly: true },
+        { name: "ರಾಶಿದ್ ಪಿ", paidJuly: false },
+        { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidJuly: true },
+        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidJuly: false },
+        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidJuly: true },
+        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidJuly: false },
+        { name: "ಆಸಿಫ್ ಕೆ", paidJuly: false }
     ];
 
     const monthNames = [
         "ಆಗಸ್ಟ್ 2025", "ಸೆಪ್ಟೆಂಬರ್ 2025", "ಅಕ್ಟೋಬರ್ 2025", "ನವೆಂಬರ್ 2025", "ಡಿಸೆಂಬರ್ 2025",
         "ಜನವರಿ 2026", "ಫೆಬ್ರವರಿ 2026", "ಮಾರ್ಚ್ 2026", "ಏಪ್ರಿಲ್ 2026", "ಮೇ 2026",
-        "ಜೂನ್ 2026", "ಜುಲೈ 2026", "ಆಗಸ್ಟ್ 2026", "ಸೆಪ್ಟೆಂಬರ್ 2026", "ಅಕ್ಟೋಬರ್ 2026",
-        "ನವೆಂಬರ್ 2026", "ಡಿಸೆಂಬರ್ 2026", "ಜನವರಿ 2027", "ಫೆಬ್ರವರಿ 2027", "ಮಾರ್ಚ್ 2027"
+        "جೂನ್ 2026", "ಜುಲೈ 2026"
     ];
 
-    const monthlyAmount = 5000;
-    const totalMonths = 20;
+    // ಹಿಂದಿನ 11 ತಿಂಗಳವರೆಗಿನ ಹಳೆಯ ಸೋಡ್ತಿ ಹಾರಿದವರ ಪಟ್ಟಿ
+    const historicalWinners = {
+        1: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ (1)",
+        2: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್ (16)",
+        3: "ಹಮೀದ್ ಉಸ್ತಾದ್ (14)",
+        4: "ರಾಶಿದ್ ಪಿ (11)",
+        5: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್ (8)",
+        6: "ಆಸಿಫ್ ಕೆ (13)",
+        7: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ (5)",
+        8: "ಸಲೀಂ ಜಿ (4)",
+        9: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ (2)",
+        10: "ಅನ್ಸಾರ್ ಟಿ ಎಂ (18)",
+        11: "ಮಶೂರ್ ಪಿ (9)"
+    };
 
     const tableBody = document.getElementById('member-rows');
     const winnerTableBody = document.getElementById('winner-rows');
 
-    const popupMemberList = document.getElementById('popup-member-list');
-    members.forEach((name, index) => {
-        const li = document.createElement('li');
-        li.innerHTML = `<span>${name}</span> <span class="list-no">#${index + 1}</span>`;
-        popupMemberList.appendChild(li);
-    });
-
-    const popupMonthsList = document.getElementById('popup-months-list');
-    monthNames.forEach((month, index) => {
-        const li = document.createElement('li');
-        li.innerHTML = `<span>${month}</span> <span class="list-no">ತಿಂಗಳು ${index + 1}</span>`;
-        popupMonthsList.appendChild(li);
-    });
-
-    function openModal(modalId) { document.getElementById(modalId).style.display = "block"; }
-    function closeModal(modalId) { document.getElementById(modalId).style.display = "none"; }
-    window.onclick = function(event) { if (event.target.classList.contains('modal')) { event.target.style.display = "none"; } }
-
-    let savedPayments = JSON.parse(localStorage.getItem('sodthi_payments_v2')) || {};
-    
-    let defaultWinners = {
-        "month_1": "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ (1)",
-        "month_2": "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್ (16)",
-        "month_3": "ಹಮೀದ್ ಉಸ್ತಾದ್ (14)",
-        "month_4": "ರಾಶಿದ್ ಪಿ (11)",
-        "month_5": "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್ (8)",
-        "month_6": "ಆಸಿಫ್ ಕೆ (13)",
-        "month_7": "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ (5)",
-        "month_8": "ಸಲೀಂ ಜಿ (4)",
-        "month_9": "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ (2)",
-        "month_10": "ಅನ್ಸಾರ್ ಟಿ ಎ (18)",
-        "month_11": "ಮಶೂರ್ ಪಿ (9)"
-    };
-    
-    let savedWinners = JSON.parse(localStorage.getItem('sodthi_winners')) || defaultWinners;
-    savedWinners = Object.assign({}, defaultWinners, savedWinners);
-    localStorage.setItem('sodthi_winners', JSON.stringify(savedWinners));
-
-    members.forEach((name, index) => {
-        const memberId = 'member_' + index;
+    // ಸದಸ್ಯರ ಪಟ್ಟಿ ಪ್ರದರ್ಶನ
+    memberData.forEach((member, index) => {
         const row = document.createElement('tr');
+        
+        // ಒಟ್ಟು ಕಟ್ಟಿದ ತಿಂಗಳುಗಳು (ಜೂನ್ ವರೆಗೆ 11 ತಿಂಗಳು + ಜುಲೈ ಕಟ್ಟಿದ್ದರೆ 12 ತಿಂಗಳು)
+        const totalMonthsPaid = member.paidJuly ? 12 : 11;
+        const totalAmountPaid = totalMonthsPaid * 5000;
 
         const sNoTd = document.createElement('td'); sNoTd.textContent = index + 1; row.appendChild(sNoTd);
-        const nameTd = document.createElement('td'); nameTd.textContent = name; row.appendChild(nameTd);
+        const nameTd = document.createElement('td'); nameTd.textContent = member.name; row.appendChild(nameTd);
 
-        const monthTd = document.createElement('td');
-        const monthInput = document.createElement('input');
-        monthInput.type = 'number'; monthInput.className = 'input-months admin-field';
-        monthInput.id = 'input_month_' + memberId; monthInput.min = 0; monthInput.max = totalMonths; monthInput.disabled = true; 
-        
-        const initialMonths = savedPayments[memberId] !== undefined ? savedPayments[memberId].months : 11;
-        monthInput.value = initialMonths; monthTd.appendChild(monthInput); row.appendChild(monthTd);
+        const statusTd = document.createElement('td');
+        statusTd.innerHTML = member.paidJuly ? `<span class="badge-paid">Paid (12 ತಿಂಗಳು)</span>` : `<span class="badge-pending">Pending (11 ತಿಂಗಳು)</span>`;
+        row.appendChild(statusTd);
 
         const amountTd = document.createElement('td');
-        const amountInput = document.createElement('input');
-        amountInput.type = 'number'; amountInput.className = 'input-amount admin-field';
-        amountInput.id = 'input_amount_' + memberId; amountInput.disabled = true; 
-        
-        const initialAmount = savedPayments[memberId] !== undefined ? savedPayments[memberId].amount : (initialMonths * monthlyAmount);
-        amountInput.value = initialAmount; amountTd.appendChild(amountInput); row.appendChild(amountTd);
+        amountTd.innerHTML = `<span class="text-amount">₹ ${totalAmountPaid.toLocaleString('en-IN')}</span>`;
+        row.appendChild(amountTd);
 
-        if(savedPayments[memberId] === undefined) { savedPayments[memberId] = { months: initialMonths, amount: initialAmount }; }
-
-        monthInput.addEventListener('input', function() {
-            let mVal = parseInt(this.value) || 0;
-            if(mVal > totalMonths) { mVal = totalMonths; this.value = totalMonths; }
-            if(mVal < 0) { mVal = 0; this.value = 0; }
-            let aVal = mVal * monthlyAmount; amountInput.value = aVal; saveData(memberId, mVal, aVal);
-        });
-
-        amountInput.addEventListener('input', function() {
-            let aVal = parseInt(this.value) || 0; let mVal = parseInt(monthInput.value) || 0; saveData(memberId, mVal, aVal);
-        });
         tableBody.appendChild(row);
     });
-    
-    localStorage.setItem('sodthi_payments_v2', JSON.stringify(savedPayments));
-    function saveData(memberId, months, amount) { savedPayments[memberId] = { months: months, amount: amount }; localStorage.setItem('sodthi_payments_v2', JSON.stringify(savedPayments)); }
 
-    function incrementAllMonths() {
-        if(!isAdmin) return;
-        if(confirm("ಎಲ್ಲಾ ಸದಸ್ಯರಿಗೂ 1 ತಿಂಗಳು ಮತ್ತು ₹5,000 ಮೊತ್ತವನ್ನು ಹೆಚ್ಚಿಸಬೇಕೇ?")) {
-            members.forEach((name, index) => {
-                const memberId = 'member_' + index;
-                const mInput = document.getElementById('input_month_' + memberId);
-                const aInput = document.getElementById('input_amount_' + memberId);
-                let curMonths = parseInt(mInput.value) || 0; let curAmount = parseInt(aInput.value) || 0;
-                if(curMonths < totalMonths) { curMonths += 1; curAmount += monthlyAmount; mInput.value = curMonths; aInput.value = curAmount; saveData(memberId, curMonths, curAmount); }
-            });
-        }
-    }
-
-    for (let m = 1; m <= totalMonths; m++) {
+    // ಸೋಡ್ತಿ ಪಟ್ಟಿ ಪ್ರದರ್ಶನ (12ನೇ ತಿಂಗಳು - ಜುಲೈ ಇನ್ನೂ ಆಗದ ಕಾರಣ ಖಾಲಿ ಇಡಲಾಗಿದೆ)
+    for (let m = 1; m <= 12; m++) {
         const row = document.createElement('tr');
         const monthTd = document.createElement('td'); monthTd.innerHTML = `<b>ತಿಂಗಳು ${m}</b> <br><small style="color:#7f8c8d;">(${monthNames[m-1]})</small>`; row.appendChild(monthTd);
 
         const winnerTd = document.createElement('td');
-        const select = document.createElement('select'); select.className = 'winner-select admin-field'; select.disabled = true; 
-        const defaultOpt = document.createElement('option'); defaultOpt.value = ""; defaultOpt.textContent = "-- ಆಯ್ಕೆ ಮಾಡಿ --"; select.appendChild(defaultOpt);
-
-        members.forEach((name, idx) => {
-            const opt = document.createElement('option'); opt.value = `${name} (${idx + 1})`; opt.textContent = `${idx + 1}. ${name}`; select.appendChild(opt);
-        });
-
-        if (savedWinners[`month_${m}`]) { select.value = savedWinners[`month_${m}`]; }
-        select.addEventListener('change', function() { savedWinners[`month_${m}`] = this.value; localStorage.setItem('sodthi_winners', JSON.stringify(savedWinners)); });
-
-        winnerTd.appendChild(select); row.appendChild(winnerTd); winnerTableBody.appendChild(row);
-    }
-
-    function toggleAdminMode() {
-        if (!isAdmin) {
-            const password = prompt("ಅಡ್ಮಿನ್ ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ:");
-            if (password === ADMIN_PASSWORD) {
-                isAdmin = true;
-                document.getElementById('lock-btn').textContent = "🔓 ಅಡ್ಮಿನ್ ಔಟ್ (Lock)";
-                document.getElementById('lock-btn').classList.add('unlocked');
-                document.getElementById('status-text').textContent = "ಅಡ್ಮಿನ್ ಮೋಡ್ ಸಕ್ರಿಯವಾಗಿದೆ (Editable)";
-                document.getElementById('bulk-action-btn').style.display = "block";
-                document.querySelectorAll('.admin-field').forEach(field => field.disabled = false);
-            } else if (password !== null) { alert("ತಪ್ಪು ಪಾಸ್‌ವರ್ಡ್!"); }
-        } else {
-            isAdmin = false;
-            document.getElementById('lock-btn').textContent = "🔒 ಅಡ್ಮಿನ್ ಲಾಗಿನ್";
-            document.getElementById('lock-btn').classList.remove('unlocked');
-            document.getElementById('status-text').textContent = "ವೀಕ್ಷಣೆ ಮೋಡ್ (Read Only)";
-            document.getElementById('bulk-action-btn').style.display = "none";
-            document.querySelectorAll('.admin-field').forEach(field => field.disabled = true);
-        }
+        winnerTd.style.fontWeight = "bold";
+        winnerTd.style.color = "#2c3e50";
+        winnerTd.textContent = historicalWinners[m] ? historicalWinners[m] : "⏳ ಸೋಡ್ತಿ ನಡೆದಿಲ್ಲ";
+        
+        row.appendChild(winnerTd);
+        winnerTableBody.appendChild(row);
     }
 </script>
 </body>
