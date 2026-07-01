@@ -285,26 +285,26 @@
     const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿ ವಿವರವನ್ನು ಅಪ್ಡೇಟ್ ಮಾಡಬೇಕಾಗಿದೆ.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // ನೀವು ಕಳುಹಿಸಿದ ಪಟ್ಟಿಯ ಪ್ರಕಾರ ಜುಲೈ ತಿಂಗಳ ನಿಖರ ಪಾವತಿ ಸ್ಥಿತಿ (Paid = true, Pending = false)
+    // ಕೇವಲ 2ನೇ ನಂಬರ್ ಸದಸ್ಯ ಸ‌ಅದ್ ‌ಸ‌ಅದಿ ಮಾತ್ರ ಹಣ ಪಾವತಿಸಿದ್ದಾರೆ (paidJuly: true)
     const memberData = [
-        { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidJuly: true },
+        { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidJuly: false },
         { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidJuly: true },
         { name: "ಮುಸ್ತಾಕ್ ಎ", paidJuly: false },
-        { name: "ಸಲೀಂ ಜಿ", paidJuly: true },
-        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidJuly: true },
+        { name: "ಸಲೀಂ ಜಿ", paidJuly: false },
+        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidJuly: false },
         { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidJuly: false },
         { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidJuly: false },
-        { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidJuly: true },
-        { name: "ಮಶೂರ್ ಪಿ", paidJuly: true },
-        { name: "ಮುಸ್ತಫಾ Hh", paidJuly: false },
-        { name: "ರಾಶಿದ್ ಪಿ", paidJuly: true },
-        { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidJuly: false },
-        { name: "ಆಸಿಫ್ ಕೆ", paidJuly: true },
-        { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidJuly: true },
+        { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidJuly: false },
+        { name: "ಮಶೂರ್ ಪಿ", paidJuly: false },
+        { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidJuly: false },
         { name: "ರಾಶಿದ್ ಪಿ", paidJuly: false },
-        { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidJuly: true },
+        { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidJuly: false },
+        { name: "ಆಸಿಫ್ ಕೆ", paidJuly: false },
+        { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidJuly: false },
+        { name: "ರಾಶಿದ್ ಪಿ", paidJuly: false },
+        { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidJuly: false },
         { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidJuly: false },
-        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidJuly: true },
+        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidJuly: false },
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidJuly: false },
         { name: "ಆಸಿಫ್ ಕೆ", paidJuly: false }
     ];
@@ -312,10 +312,9 @@
     const monthNames = [
         "ಆಗಸ್ಟ್ 2025", "ಸೆಪ್ಟೆಂಬರ್ 2025", "ಅಕ್ಟೋಬರ್ 2025", "ನವೆಂಬರ್ 2025", "ಡಿಸೆಂಬರ್ 2025",
         "ಜನವರಿ 2026", "ಫೆಬ್ರವರಿ 2026", "ಮಾರ್ಚ್ 2026", "ಏಪ್ರಿಲ್ 2026", "ಮೇ 2026",
-        "جೂನ್ 2026", "ಜುಲೈ 2026"
+        "ಜೂನ್ 2026", "ಜುಲೈ 2026"
     ];
 
-    // ಹಿಂದಿನ 11 ತಿಂಗಳವರೆಗಿನ ಹಳೆಯ ಸೋಡ್ತಿ ಹಾರಿದವರ ಪಟ್ಟಿ
     const historicalWinners = {
         1: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ (1)",
         2: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್ (16)",
@@ -333,11 +332,9 @@
     const tableBody = document.getElementById('member-rows');
     const winnerTableBody = document.getElementById('winner-rows');
 
-    // ಸದಸ್ಯರ ಪಟ್ಟಿ ಪ್ರದರ್ಶನ
     memberData.forEach((member, index) => {
         const row = document.createElement('tr');
         
-        // ಒಟ್ಟು ಕಟ್ಟಿದ ತಿಂಗಳುಗಳು (ಜೂನ್ ವರೆಗೆ 11 ತಿಂಗಳು + ಜುಲೈ ಕಟ್ಟಿದ್ದರೆ 12 ತಿಂಗಳು)
         const totalMonthsPaid = member.paidJuly ? 12 : 11;
         const totalAmountPaid = totalMonthsPaid * 5000;
 
@@ -355,7 +352,6 @@
         tableBody.appendChild(row);
     });
 
-    // ಸೋಡ್ತಿ ಪಟ್ಟಿ ಪ್ರದರ್ಶನ (12ನೇ ತಿಂಗಳು - ಜುಲೈ ಇನ್ನೂ ಆಗದ ಕಾರಣ ಖಾಲಿ ಇಡಲಾಗಿದೆ)
     for (let m = 1; m <= 12; m++) {
         const row = document.createElement('tr');
         const monthTd = document.createElement('td'); monthTd.innerHTML = `<b>ತಿಂಗಳು ${m}</b> <br><small style="color:#7f8c8d;">(${monthNames[m-1]})</small>`; row.appendChild(monthTd);
