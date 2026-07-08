@@ -551,13 +551,13 @@
     const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿ ವಿವರವನ್ನು ಅಪ್ಡೇಟ್ ಮಾಡಬೇಕಾಗಿದೆ.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // 17ನೇ ಸದಸ್ಯರ (Index 16) ಸ್ಥಿತಿಯನ್ನು true (Paid) ಎಂದು ಬದಲಾಯಿಸಲಾಗಿದೆ
+    // 5ನೇ ಸದಸ್ಯರ (Index 4) ಸ್ಥಿತಿಯನ್ನು true (Paid) ಎಂದು ಬದಲಾಯಿಸಲಾಗಿದೆ
     const memberData = [
         { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidJuly: true },    
         { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidJuly: true },
         { name: "ಮುಸ್ತಾಕ್ ಎ", paidJuly: false },
         { name: "ಸಲೀಂ ಜಿ", paidJuly: false },
-        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidJuly: false },
+        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidJuly: true },     // Updated to true (5th member)
         { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidJuly: true },     
         { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidJuly: false },
         { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidJuly: false },
@@ -569,7 +569,7 @@
         { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidJuly: true },    
         { name: "ರಾಶಿದ್ ಪಿ", paidJuly: false },
         { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidJuly: false },
-        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidJuly: true },    // Updated to true (17th member)
+        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidJuly: true },    
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidJuly: true },   
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidJuly: true },   
         { name: "ಆಸಿಫ್ ಕೆ", paidJuly: true }           
