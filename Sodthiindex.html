@@ -119,7 +119,7 @@
             100% { box-shadow: 0 0 0 0 rgba(46, 196, 182, 0); }
         }
 
-        /* ಹೊಸ ಹೈಲೈಟ್ ಮತ್ತು ಅನಿಮೇಟೆಡ್ ಡ್ರಾ ಪ್ರಕಟಣೆ ಕಾರ್ಡ್ */
+        /* Draw Announcement Card */
         .draw-announcement {
             background: linear-gradient(135deg, #ff9f43, #ff5252);
             border-radius: 16px;
@@ -556,7 +556,7 @@
         <span style="color: var(--live-color); font-size: 0.9rem;">● Running Month</span>
     </div>
 
-    <!-- ಹೊಸದಾಗಿ ಸೇರಿಸಲಾದ ಸುಂದರವಾದ ಅನಿಮೇಟೆಡ್ ಸೋಡ್ತಿ ಡ್ರಾ ಪ್ರಕಟಣೆ -->
+    <!-- Draw Announcement -->
     <div class="draw-announcement">
         <div class="draw-title">📢 ಮಹತ್ವದ ಪ್ರಕಟಣೆ | 12ನೇ ತಿಂಗಳ ಸೋಡ್ತಿ ಡ್ರಾ 🎯</div>
         <div class="draw-time">🗓️ 11 ಜುಲೈ 2026, ಬೆಳಿಗ್ಗೆ 8:00 ಗಂಟೆಗೆ ⏰</div>
@@ -629,12 +629,12 @@
     const memberData = [
         { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidJuly: true },    
         { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidJuly: true },
-        { name: "ಮುಸ್ತಾಕ್ ಎ", paidJuly: false },
+        { name: "ಮುಸ್ತಾಕ್ ಎ", paidJuly: true },          // 3ನೇ ಸದಸ್ಯ - Paid (12M)
         { name: "ಸಲೀಂ ಜಿ", paidJuly: true },          
         { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidJuly: true },     
         { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidJuly: true },     
-        { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidJuly: false, customAmount: 55300 }, 
-        { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidJuly: false },
+        { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidJuly: false, customAmount: 55300 }, // 7ನೇ ಸದಸ್ಯ - ಮೊದಲಿನ ಸ್ಥಿತಿಗೆ ಮರುಸ್ಥಾಪಿಸಲಾಗಿದೆ
+        { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidJuly: true },    // 8ನೇ ಸದಸ್ಯ - Paid (12M)
         { name: "ಮಶೂರ್ ಪಿ", paidJuly: true },          
         { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidJuly: true },     
         { name: "ರಾಶಿದ್ ಪಿ", paidJuly: true },          
