@@ -92,7 +92,7 @@
             border-left: 6px solid var(--live-color);
             padding: 15px 20px;
             border-radius: 12px;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             font-size: 1rem;
             display: flex;
             justify-content: space-between;
@@ -117,6 +117,71 @@
             0% { box-shadow: 0 0 0 0 rgba(46, 196, 182, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(46, 196, 182, 0); }
             100% { box-shadow: 0 0 0 0 rgba(46, 196, 182, 0); }
+        }
+
+        /* ಹೊಸ ಹೈಲೈಟ್ ಮತ್ತು ಅನಿಮೇಟೆಡ್ ಡ್ರಾ ಪ್ರಕಟಣೆ ಕಾರ್ಡ್ */
+        .draw-announcement {
+            background: linear-gradient(135deg, #ff9f43, #ff5252);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(255, 82, 82, 0.35);
+            animation: container-glow 3s infinite alternate;
+        }
+
+        .draw-announcement::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -150%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            animation: shine-sweep 3.5s infinite linear;
+        }
+
+        .draw-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .draw-time {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 5px 0 0 0;
+            background: #ffffff;
+            color: #ff5252;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: pulse-scale 1.5s infinite alternate cubic-bezier(0.4, 0, 0.6, 1);
+        }
+
+        @keyframes shine-sweep {
+            0% { left: -150%; }
+            50% { left: 150%; }
+            100% { left: 150%; }
+        }
+
+        @keyframes container-glow {
+            0% { box-shadow: 0 10px 25px rgba(255, 82, 82, 0.3); }
+            100% { box-shadow: 0 10px 35px rgba(255, 159, 67, 0.6); }
+        }
+
+        @keyframes pulse-scale {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.04); box-shadow: 0 8px 25px rgba(255,255,255,0.4); }
         }
 
         /* Stats Grid & Box Styling */
@@ -165,7 +230,6 @@
             perspective: 1000px;
         }
 
-        /* Icons CSS Micro-Animations */
         .stat-box:nth-child(1):hover .stat-icon {
             animation: shakeHand 0.6s ease-in-out infinite alternate;
             background: #eef2ff;
@@ -369,7 +433,6 @@
             white-space: nowrap;
         }
 
-        /* ಕೆಂಪು ಬಣ್ಣದ ವಿಶೇಷ ಕ್ಲಾಸ್ */
         .text-red {
             color: var(--danger-text) !important;
         }
@@ -493,6 +556,12 @@
         <span style="color: var(--live-color); font-size: 0.9rem;">● Running Month</span>
     </div>
 
+    <!-- ಹೊಸದಾಗಿ ಸೇರಿಸಲಾದ ಸುಂದರವಾದ ಅನಿಮೇಟೆಡ್ ಸೋಡ್ತಿ ಡ್ರಾ ಪ್ರಕಟಣೆ -->
+    <div class="draw-announcement">
+        <div class="draw-title">📢 ಮಹತ್ವದ ಪ್ರಕಟಣೆ | 12ನೇ ತಿಂಗಳ ಸೋಡ್ತಿ ಡ್ರಾ 🎯</div>
+        <div class="draw-time">🗓️ 11 ಜುಲೈ 2026, ಬೆಳಿಗ್ಗೆ 8:00 ಗಂಟೆಗೆ ⏰</div>
+    </div>
+
     <!-- Stats Overview -->
     <div class="stats-container">
         <a href="#members-section" class="stat-box clickable">
@@ -557,7 +626,6 @@
     const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿ ವಿವರವನ್ನು ಅಪ್ಡೇಟ್ ಮಾಡಬೇಕಾಗಿದೆ.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // 7 ಮತ್ತು 17ನೇ ಸದಸ್ಯರಿಗೆ ಕಸ್ಟಮ್ ಮೊತ್ತವನ್ನು ಹೊಂದಿಸಲಾಗಿದೆ
     const memberData = [
         { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidJuly: true },    
         { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidJuly: true },
@@ -565,7 +633,7 @@
         { name: "ಸಲೀಂ ಜಿ", paidJuly: true },          
         { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidJuly: true },     
         { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidJuly: true },     
-        { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidJuly: false, customAmount: 55300 }, // 7ನೇ ಸದಸ್ಯ - ₹ 55,300 ಕಸ್ಟಮ್ ಮೊತ್ತ
+        { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidJuly: false, customAmount: 55300 }, 
         { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidJuly: false },
         { name: "ಮಶೂರ್ ಪಿ", paidJuly: true },          
         { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidJuly: true },     
@@ -575,7 +643,7 @@
         { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidJuly: true },    
         { name: "ರಾಶಿದ್ ಪಿ", paidJuly: true },          
         { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidJuly: true }, 
-        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidJuly: false, customAmount: 54500 }, // 17ನೇ ಸದಸ್ಯ - ₹ 54,500 ಕಸ್ಟಮ್ ಮೊತ್ತ
+        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidJuly: false, customAmount: 54500 }, 
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidJuly: true },   
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidJuly: true },   
         { name: "ಆಸಿಫ್ ಕೆ", paidJuly: true }           
