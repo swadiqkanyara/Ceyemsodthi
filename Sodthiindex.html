@@ -16,6 +16,7 @@
             --text-main: #2b2d42;
             --text-muted: #6c757d;
             --whatsapp: #25D366;
+            --danger-text: #d1514e;
         }
 
         body {
@@ -368,6 +369,11 @@
             white-space: nowrap;
         }
 
+        /* ಕೆಂಪು ಬಣ್ಣದ ವಿಶೇಷ ಕ್ಲಾಸ್ */
+        .text-red {
+            color: var(--danger-text) !important;
+        }
+
         /* Timeline for Winners */
         .timeline {
             display: flex;
@@ -551,7 +557,7 @@
     const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿ ವಿವರವನ್ನು ಅಪ್ಡೇಟ್ ಮಾಡಬೇಕಾಗಿದೆ.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // 16 (Index 15) ನೇ ಸದಸ್ಯರ ಸ್ಥಿತಿಯನ್ನು true (Paid) ಎಂದು ಬದಲಾಯಿಸಲಾಗಿದೆ
+    // 7 ಮತ್ತು 17ನೇ ಸದಸ್ಯರಿಗೆ ಕಸ್ಟಮ್ ಮೊತ್ತವನ್ನು ಹೊಂದಿಸಲಾಗಿದೆ
     const memberData = [
         { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidJuly: true },    
         { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidJuly: true },
@@ -559,17 +565,17 @@
         { name: "ಸಲೀಂ ಜಿ", paidJuly: true },          
         { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidJuly: true },     
         { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidJuly: true },     
-        { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidJuly: true },       
+        { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidJuly: false, customAmount: 55300 }, // 7ನೇ ಸದಸ್ಯ - ₹ 55,300 ಕಸ್ಟಮ್ ಮೊತ್ತ
         { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidJuly: false },
         { name: "ಮಶೂರ್ ಪಿ", paidJuly: true },          
-        { name: "ಮುস্তಫಾ ಹಿಕಮಿ", paidJuly: true },     
+        { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidJuly: true },     
         { name: "ರಾಶಿದ್ ಪಿ", paidJuly: true },          
         { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidJuly: true },    
         { name: "ಆಸಿಫ್ ಕೆ", paidJuly: true },          
         { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidJuly: true },    
         { name: "ರಾಶಿದ್ ಪಿ", paidJuly: true },          
-        { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidJuly: true }, // Updated to true (16th member)
-        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidJuly: true },    
+        { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidJuly: true }, 
+        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidJuly: false, customAmount: 54500 }, // 17ನೇ ಸದಸ್ಯ - ₹ 54,500 ಕಸ್ಟಮ್ ಮೊತ್ತ
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidJuly: true },   
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidJuly: true },   
         { name: "ಆಸಿಫ್ ಕೆ", paidJuly: true }           
@@ -597,21 +603,31 @@
 
     const memberContainer = document.getElementById('member-container');
     memberData.forEach((member, index) => {
-        const totalMonthsPaid = member.paidJuly ? 12 : 11;
-        const totalAmountPaid = totalMonthsPaid * 5000;
+        let totalAmountPaid;
+        let badgeText;
+        let isCustom = member.customAmount !== undefined;
+
+        if (isCustom) {
+            totalAmountPaid = member.customAmount;
+            badgeText = 'Partially Paid';
+        } else {
+            const totalMonthsPaid = member.paidJuly ? 12 : 11;
+            totalAmountPaid = totalMonthsPaid * 5000;
+            badgeText = member.paidJuly ? 'Paid (12M)' : 'Pending (11M)';
+        }
 
         const item = document.createElement('div');
         item.className = 'member-item';
         item.innerHTML = `
             <div class="member-left">
                 <div class="member-index">${index + 1}</div>
-                <div class="member-name">${member.name}</div>
+                <div class="member-name ${isCustom ? 'text-red' : ''}">${member.name}</div>
             </div>
             <div class="member-right">
-                <span class="badge ${member.paidJuly ? 'badge-paid' : 'badge-pending'}">
-                    ${member.paidJuly ? 'Paid (12M)' : 'Pending (11M)'}
+                <span class="badge ${member.paidJuly ? 'badge-paid' : 'badge-pending'} ${isCustom ? 'text-red' : ''}">
+                    ${badgeText}
                 </span>
-                <span class="amount-display">₹ ${totalAmountPaid.toLocaleString('en-IN')}</span>
+                <span class="amount-display ${isCustom ? 'text-red' : ''}">₹ ${totalAmountPaid.toLocaleString('en-IN')}</span>
             </div>
         `;
         memberContainer.appendChild(item);
