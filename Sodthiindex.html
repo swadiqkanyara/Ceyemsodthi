@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEYEM2K25SODTHI - Advanced Premium Dashboard</title>
+    <title>CEYEM2K25SODTHI KANYARAKODI - Advanced Premium Dashboard</title>
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
@@ -70,9 +70,9 @@
 
         .profile-card h1 {
             margin: 0 0 8px 0;
-            font-size: 2.6rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             background: linear-gradient(to right, #fff, #e0eafc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -363,7 +363,7 @@
             border-left: 5px solid #475569;
         }
 
-        /* ಆಗಸ್ಟ್ ತಿಂಗಳ ಲೈವ್ ಗ್ರೀನ್ ಆನಿಮೇಷನ್ ಸ್ಟೈಲ್ */
+        /* 13ನೇ ತಿಂಗಳ ಗ್ರೀನ್ ಅನಿಮೇಶನ್ ಸ್ಟೈಲ್ */
         .timeline-item.green-animation {
             border-left: 6px solid var(--live-color);
             background: linear-gradient(135deg, #f0fdf4 0%, #e8fbf7 100%);
@@ -408,7 +408,18 @@
             color: #1e293b;
         }
 
-        /* Contact Footer */
+        /* Contact & Bank Details Footer */
+        .bank-details {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: left;
+            font-size: 0.9rem;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+        }
+
         .contact-box {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
@@ -447,7 +458,7 @@
         <div class="avatar-container">
             <img src="https://i.postimg.co/7Yn0w9S2/1001547062.jpg" alt="Madavoor CM Makham">
         </div>
-        <h1>CEYEM2K25SODTHI</h1>
+        <h1>CEYEM2K25SODTHI KANYARAKODI</h1>
         <p>ಮಡವೂರು ಸಿ.ಎಂ. ವಲಿಯ್ಯಿಲ್ಲಾಹ್(ಖ) ಸೋಡ್ತಿ ಮತ್ತು ಚೀಟಿ ವ್ಯವಸ್ಥೆ</p>
     </header>
 
@@ -477,7 +488,7 @@
             <div class="stat-icon">📈</div>
             <div class="stat-info">
                 <h3>ಪ್ರಸ್ತುತ ಅವಧಿ</h3>
-                <p>ತಿಂಗಳು 13 / 20 ತಿಂಗಳುಗಳು</p>
+                <p>ತಿಂಗಳು 13 / 20</p>
             </div>
         </div>
         <div class="stat-box">
@@ -504,12 +515,19 @@
                 <div class="timeline" id="winner-container"></div>
             </div>
 
-            <!-- Modern Contact Center -->
+            <!-- Contact & Bank Details -->
             <div class="contact-box">
-                <h3 style="margin: 0 0 10px 0; font-size: 1.25rem; font-weight: 700;">ಹಣಕಾಸು ವಿವರಣೆ ಅಥವಾ ಸಹಾಯ 📞</h3>
-                <p style="margin: 0; opacity: 0.75; font-size: 0.95rem; line-height: 1.5;">ನಿಮ್ಮ ಚಂದಾ ಪಾವತಿಯಲ್ಲಿ ಅಥವಾ ಹೆಸರಿನಲ್ಲಿ ತಿದ್ದುಪಡಿಗಳಿದ್ದಲ್ಲಿ ತಕ್ಷಣ ಅಡ್ಮಿನ್ ಅನ್ನು ವಾಟ್ಸಾಪ್ ಮೂಲಕ ಸಂಪರ್ಕಿಸಿ.</p>
+                <h3 style="margin: 0 0 10px 0; font-size: 1.25rem; font-weight: 700;">ಬ್ಯಾಂಕ್ ಹಾಗೂ ಪಾವತಿ ವಿವರಗಳು 💳</h3>
+                
+                <div class="bank-details">
+                    <p style="margin: 3px 0;"><b>ಹೆಸರು:</b> MAHAMMAD SADIK K P</p>
+                    <p style="margin: 3px 0;"><b>ಖಾತೆ ಸಂಖ್ಯೆ:</b> 3633108002092</p>
+                    <p style="margin: 3px 0;"><b>IFSC Code:</b> CNRB0003633 (Canara Bank)</p>
+                    <p style="margin: 3px 0; color: #166534; font-weight: bold;">📲 GPay / PhonePe: +91 8277614329</p>
+                </div>
+
                 <a id="whatsapp-link" href="#" target="_blank" class="whatsapp-btn">
-                    <span style="margin-right: 10px; font-size: 1.2rem;">💬</span> ವಾಟ್ಸಾಪ್ ಹೆಲ್ಪ್ ಲೈನ್
+                    <span style="margin-right: 10px; font-size: 1.2rem;">💬</span> ವಾಟ್ಸಾಪ್ ಸಹಾಯವಾಣಿ
                 </a>
             </div>
         </div>
@@ -518,30 +536,31 @@
 
 <script>
     const WHATSAPP_NUMBER = "918277614329"; 
-    const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿ ವಿವರವನ್ನು ಅಪ್ಡೇಟ್ ಮಾಡಬೇಕಾಗಿದೆ.");
+    const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿಯ ರಸೀದಿಯನ್ನು ಕಳುಹಿಸುತ್ತಿದ್ದೇನೆ.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
+    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ (2, 18, 19 ರವರ ಆಗಸ್ಟ್ ಪಾವತಿ ಅಪ್ಡೇಟ್ ಮಾಡಲಾಗಿದೆ)
     const memberData = [
-        { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidAugust: false },    
-        { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidAugust: false },
-        { name: "ಮುಸ್ತಾಕ್ ಎ", paidAugust: false },          
-        { name: "ಸಲೀಂ ಜಿ", paidAugust: false },          
-        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidAugust: false },     
-        { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidAugust: false },     
-        { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidAugust: false, customAmount: 55300 }, 
-        { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidAugust: false },    
-        { name: "ಮಶೂರ್ ಪಿ", paidAugust: false },          
-        { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidAugust: false },     
-        { name: "ರಾಶಿದ್ ಪಿ", paidAugust: false },          
-        { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidAugust: false },    
-        { name: "ಆಸಿಫ್ ಕೆ", paidAugust: false },          
-        { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidAugust: false },    
-        { name: "ರಾಶಿದ್ ಪಿ", paidAugust: false },          
-        { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidAugust: false }, 
-        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidAugust: false, customAmount: 54500 }, 
-        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidAugust: false },   
-        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidAugust: false },   
-        { name: "ಆಸಿಫ್ ಕೆ", paidAugust: false }           
+        { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidAugust: false },           // 1
+        { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidAugust: true },            // 2 - PAID
+        { name: "ಮುಸ್ತಾಕ್ ಎ", paidAugust: false },             // 3
+        { name: "ಸಲೀಂ ಜಿ", paidAugust: false },             // 4
+        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidAugust: false },        // 5
+        { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidAugust: false },        // 6
+        { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidAugust: false, customAmount: 55300 }, // 7
+        { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidAugust: false },       // 8
+        { name: "ಮಶೂರ್ ಪಿ", paidAugust: false },             // 9
+        { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidAugust: false },        // 10
+        { name: "ರಾಶಿದ್ ಪಿ", paidAugust: false },             // 11
+        { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidAugust: false },       // 12
+        { name: "ಆಸಿಫ್ ಕೆ", paidAugust: false },             // 13
+        { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidAugust: false },       // 14
+        { name: "ರಾಶಿದ್ ಪಿ", paidAugust: false },             // 15
+        { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidAugust: false },    // 16
+        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidAugust: false, customAmount: 54500 }, // 17
+        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidAugust: true },          // 18 - PAID
+        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidAugust: true },          // 19 - PAID
+        { name: "ಆಸಿಫ್ ಕೆ", paidAugust: false }              // 20
     ];
 
     const monthNames = [
@@ -563,7 +582,7 @@
         10: "ಅನ್ಸಾರ್ ಟಿ ಎಂ (18)",
         11: "ಮಶೂರ್ ಪಿ (9)",
         12: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು (12)",
-        13: "ಸೋಡ್ತಿ ಪ್ರಕ್ರಿಯೆ ಚಾಲನೆಯಲ್ಲಿದೆ 🎲" // 13ನೇ ತಿಂಗಳು ಚಾಲನೆಯಲ್ಲಿದೆ
+        13: "ಸೋಡ್ತಿ ಪ್ರಕ್ರಿಯೆ ಚಾಲನೆಯಲ್ಲಿದೆ 🎲"
     };
 
     const memberContainer = document.getElementById('member-container');
@@ -578,7 +597,7 @@
         } else {
             const totalMonthsPaid = member.paidAugust ? 13 : 12;
             totalAmountPaid = totalMonthsPaid * 5000;
-            badgeText = member.paidAugust ? 'Paid (13M)' : 'Paid (12M)';
+            badgeText = member.paidAugust ? 'Paid (13M)' : 'Pending (12M)';
         }
 
         const item = document.createElement('div');
@@ -589,7 +608,7 @@
                 <div class="member-name ${isCustom ? 'text-red' : ''}">${member.name}</div>
             </div>
             <div class="member-right">
-                <span class="badge ${member.paidAugust ? 'badge-paid' : 'badge-paid'} ${isCustom ? 'text-red' : ''}">
+                <span class="badge ${member.paidAugust ? 'badge-paid' : (isCustom ? 'badge-pending' : 'badge-pending')} ${isCustom ? 'text-red' : ''}">
                     ${badgeText}
                 </span>
                 <span class="amount-display ${isCustom ? 'text-red' : ''}">₹ ${totalAmountPaid.toLocaleString('en-IN')}</span>
@@ -602,7 +621,6 @@
     for (let m = 13; m >= 1; m--) { 
         const item = document.createElement('div');
         
-        // 13ನೇ ತಿಂಗಳ ಸೋಡ್ತಿ ಚಾಲನೆಯಲ್ಲಿರುವುದರಿಂದ ಗ್ರೀನ್ ಆನಿಮೇಶನ್ ಅನ್ವಯಿಸಲಾಗಿದೆ
         if (m === 13) {
             item.className = 'timeline-item green-animation';
         } else {
