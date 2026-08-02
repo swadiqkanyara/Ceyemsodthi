@@ -539,7 +539,7 @@
     const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿಯ ರಸೀದಿಯನ್ನು ಕಳುಹಿಸುತ್ತಿದ್ದೇನೆ.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ (2, 18, 19 ರವರ ಆಗಸ್ಟ್ ಪಾವತಿ ಅಪ್ಡೇಟ್ ಮಾಡಲಾಗಿದೆ)
+    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ (2, 16, 18, 19 ರವರ ಆಗಸ್ಟ್ ಪಾವತಿ ಅಪ್ಡೇಟ್ ಮಾಡಲಾಗಿದೆ)
     const memberData = [
         { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidAugust: false },           // 1
         { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidAugust: true },            // 2 - PAID
@@ -556,7 +556,7 @@
         { name: "ಆಸಿಫ್ ಕೆ", paidAugust: false },             // 13
         { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidAugust: false },       // 14
         { name: "ರಾಶಿದ್ ಪಿ", paidAugust: false },             // 15
-        { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidAugust: false },    // 16
+        { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidAugust: true },     // 16 - PAID
         { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidAugust: false, customAmount: 54500 }, // 17
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidAugust: true },          // 18 - PAID
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidAugust: true },          // 19 - PAID
@@ -608,7 +608,7 @@
                 <div class="member-name ${isCustom ? 'text-red' : ''}">${member.name}</div>
             </div>
             <div class="member-right">
-                <span class="badge ${member.paidAugust ? 'badge-paid' : (isCustom ? 'badge-pending' : 'badge-pending')} ${isCustom ? 'text-red' : ''}">
+                <span class="badge ${member.paidAugust ? 'badge-paid' : 'badge-pending'} ${isCustom ? 'text-red' : ''}">
                     ${badgeText}
                 </span>
                 <span class="amount-display ${isCustom ? 'text-red' : ''}">₹ ${totalAmountPaid.toLocaleString('en-IN')}</span>
