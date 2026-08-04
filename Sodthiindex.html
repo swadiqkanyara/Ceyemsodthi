@@ -539,13 +539,13 @@
     const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿಯ ರಸೀದಿಯನ್ನು ಕಳುಹಿಸುತ್ತಿದ್ದೇನೆ.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ (2, 16, 18, 19 ರವರ ಆಗಸ್ಟ್ ಪಾವತಿ ಅಪ್ಡೇಟ್ ಮಾಡಲಾಗಿದೆ)
+    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ (1, 2, 5, 16, 18, 19 ರವರ ಆಗಸ್ಟ್ ಪಾವತಿ ಅಪ್ಡೇಟ್ ಮಾಡಲಾಗಿದೆ)
     const memberData = [
-        { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidAugust: false },           // 1
+        { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidAugust: true },            // 1 - PAID
         { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidAugust: true },            // 2 - PAID
         { name: "ಮುಸ್ತಾಕ್ ಎ", paidAugust: false },             // 3
         { name: "ಸಲೀಂ ಜಿ", paidAugust: false },             // 4
-        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidAugust: false },        // 5
+        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidAugust: true },        // 5 - PAID
         { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidAugust: false },        // 6
         { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidAugust: false, customAmount: 55300 }, // 7
         { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidAugust: false },       // 8
