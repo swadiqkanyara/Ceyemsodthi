@@ -539,28 +539,28 @@
     const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿಯ ರಸೀದಿಯನ್ನು ಕಳುಹಿಸುತ್ತಿದ್ದೇನೆ.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ (1, 2, 5, 16, 18, 19 ರವರ ಆಗಸ್ಟ್ ಪಾವತಿ ಅಪ್ಡೇಟ್ ಮಾಡಲಾಗಿದೆ)
+    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ (1, 2, 5, 6, 13, 16, 18, 19, 20 ರವರ ಆಗಸ್ಟ್ ಪಾವತಿ ಅಪ್ಡೇಟ್ ಮಾಡಲಾಗಿದೆ)
     const memberData = [
         { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidAugust: true },            // 1 - PAID
         { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidAugust: true },            // 2 - PAID
         { name: "ಮುಸ್ತಾಕ್ ಎ", paidAugust: false },             // 3
         { name: "ಸಲೀಂ ಜಿ", paidAugust: false },             // 4
         { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidAugust: true },        // 5 - PAID
-        { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidAugust: false },        // 6
+        { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidAugust: true },         // 6 - PAID
         { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidAugust: false, customAmount: 55300 }, // 7
         { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidAugust: false },       // 8
         { name: "ಮಶೂರ್ ಪಿ", paidAugust: false },             // 9
         { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidAugust: false },        // 10
         { name: "ರಾಶಿದ್ ಪಿ", paidAugust: false },             // 11
         { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidAugust: false },       // 12
-        { name: "ಆಸಿಫ್ ಕೆ", paidAugust: false },             // 13
+        { name: "ಆಸಿಫ್ ಕೆ", paidAugust: true },              // 13 - PAID
         { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidAugust: false },       // 14
         { name: "ರಾಶಿದ್ ಪಿ", paidAugust: false },             // 15
         { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidAugust: true },     // 16 - PAID
         { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidAugust: false, customAmount: 54500 }, // 17
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidAugust: true },          // 18 - PAID
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidAugust: true },          // 19 - PAID
-        { name: "ಆಸಿಫ್ ಕೆ", paidAugust: false }              // 20
+        { name: "ಆಸಿಫ್ ಕೆ", paidAugust: true }               // 20 - PAID
     ];
 
     const monthNames = [
