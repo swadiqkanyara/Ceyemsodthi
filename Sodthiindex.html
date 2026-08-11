@@ -463,8 +463,8 @@
 
     <!-- Info Status Bar -->
     <div class="info-bar">
-        <span><span class="live-dot"></span>ಆಗಸ್ಟ್ 2026ರ 13ನೇ ತಿಂಗಳ ಸೋಡ್ತಿ ಪ್ರಕ್ರಿಯೆ ಚಾಲನೆಯಲ್ಲಿದೆ... 🎲</span>
-        <span style="color: var(--live-color); font-size: 0.9rem;">● Draw In Progress</span>
+        <span><span class="live-dot"></span>🎉 13ನೇ ತಿಂಗಳ (ಆಗಸ್ಟ್ 2026) ಸೋಡ್ತಿ ವಿಜೇತರು: ರಾಶಿದ್ ಪಿ (ಸಂಖ್ಯೆ 15)</span>
+        <span style="color: var(--live-color); font-size: 0.9rem;">● Draw Completed</span>
     </div>
 
     <!-- Stats Overview -->
@@ -538,18 +538,18 @@
     const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿಯ ರಸೀದಿಯನ್ನು ಕಳುಹಿಸುತ್ತಿದ್ದೇನೆ.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ (1, 2, 4, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19 ರವರ ಆಗಸ್ಟ್ ಪಾವತಿ ಅಪ್ಡೇಟ್ ಮಾಡಲಾಗಿದೆ)
+    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ
     const memberData = [
         { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidAugust: true },            // 1 - PAID
         { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidAugust: true },            // 2 - PAID
-        { name: "ಮುಸ್ತಾಕ್ ಎ", paidAugust: false },             // 3 - PENDING
+        { name: "ಮುಸ್ತಾಕ್ ಎ", paidAugust: true },             // 3 - PAID
         { name: "ಸಲೀಂ ಜಿ", paidAugust: true },              // 4 - PAID
         { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidAugust: true },        // 5 - PAID
         { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidAugust: true },         // 6 - PAID
-        { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidAugust: false, customAmount: 55300 }, // 7 - PENDING
+        { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidAugust: false },          // 7 - PENDING
         { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidAugust: true },       // 8 - PAID
         { name: "ಮಶೂರ್ ಪಿ", paidAugust: true },             // 9 - PAID
-        { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidAugust: false },        // 10 - PENDING
+        { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidAugust: true },        // 10 - PAID
         { name: "ರಾಶಿದ್ ಪಿ", paidAugust: true },             // 11 - PAID
         { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidAugust: true },       // 12 - PAID
         { name: "ಆಸಿಫ್ ಕೆ", paidAugust: true },              // 13 - PAID
@@ -559,7 +559,7 @@
         { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidAugust: true },          // 17 - PAID
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidAugust: true },          // 18 - PAID
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidAugust: true },          // 19 - PAID
-        { name: "ಆಸಿಫ್ ಕೆ", paidAugust: false }              // 20 - PENDING
+        { name: "ಆಸಿಫ್ ಕೆ", paidAugust: true }               // 20 - PAID
     ];
 
     const monthNames = [
@@ -581,7 +581,7 @@
         10: "ಅನ್ಸಾರ್ ಟಿ ಎಂ (18)",
         11: "ಮಶೂರ್ ಪಿ (9)",
         12: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು (12)",
-        13: "ಸೋಡ್ತಿ ಪ್ರಕ್ರಿಯೆ ಚಾಲನೆಯಲ್ಲಿದೆ 🎲"
+        13: "ರಾಶಿದ್ ಪಿ (15)"
     };
 
     const memberContainer = document.getElementById('member-container');
@@ -630,10 +630,10 @@
             <div class="timeline-dot"></div>
             <p class="timeline-title">
                 ತಿಂಗಳು ${m} — ${monthNames[m-1]} 
-                ${m === 13 ? '<span style="color:var(--live-color); font-weight:bold; margin-left:8px;">[🔴 LIVE DRAW]</span>' : ''}
+                ${m === 13 ? '<span style="color:var(--live-color); font-weight:bold; margin-left:8px;">[🏆 LATEST WINNER]</span>' : ''}
             </p>
             <p class="timeline-winner" style="font-weight: bold;">
-                ${m === 13 ? '⏳ ' : '🎉 '}${historicalWinners[m]}
+                🎉 ${historicalWinners[m]}
             </p>
         `;
         winnerContainer.appendChild(item);
