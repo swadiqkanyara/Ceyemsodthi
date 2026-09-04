@@ -539,28 +539,28 @@
     const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿಯ ರಸೀದಿಯನ್ನು ಕಳುಹಿಸುತ್ತಿದ್ದೇನೆ.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ (2 ನೇ ಸದಸ್ಯರ ಸೆಪ್ಟೆಂಬರ್ ಪಾವತಿ ಅಪ್ಡೇಟ್ ಮಾಡಲಾಗಿದೆ)
+    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ (2, 6, 13, 18, 19, 20 ರವರ ಸೆಪ್ಟೆಂಬರ್ ಪಾವತಿ ಅಪ್ಡೇಟ್ ಮಾಡಲಾಗಿದೆ)
     const memberData = [
         { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidSeptember: false },           // 1
         { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidSeptember: true },            // 2 - PAID
         { name: "ಮುಸ್ತಾಕ್ ಎ", paidSeptember: false },             // 3
         { name: "ಸಲೀಂ ಜಿ", paidSeptember: false },             // 4
         { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidSeptember: false },        // 5
-        { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidSeptember: false },         // 6
+        { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidSeptember: true },          // 6 - PAID
         { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidSeptember: false, customAmount: 55300 }, // 7
         { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidSeptember: false },       // 8
         { name: "ಮಶೂರ್ ಪಿ", paidSeptember: false },             // 9
         { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidSeptember: false },        // 10
         { name: "ರಾಶಿದ್ ಪಿ", paidSeptember: false },             // 11
         { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidSeptember: false },       // 12
-        { name: "ಆಸಿಫ್ ಕೆ", paidSeptember: false },              // 13
+        { name: "ಆಸಿಫ್ ಕೆ", paidSeptember: true },              // 13 - PAID
         { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidSeptember: false },       // 14
         { name: "ರಾಶಿದ್ ಪಿ", paidSeptember: false },             // 15
         { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidSeptember: false },     // 16
         { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidSeptember: false, customAmount: 54500 }, // 17
-        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidSeptember: false },          // 18
-        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidSeptember: false },          // 19
-        { name: "ಆಸಿಫ್ ಕೆ", paidSeptember: false }               // 20
+        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidSeptember: true },          // 18 - PAID
+        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidSeptember: true },          // 19 - PAID
+        { name: "ಆಸಿಫ್ ಕೆ", paidSeptember: true }               // 20 - PAID
     ];
 
     const monthNames = [
