@@ -464,8 +464,8 @@
 
     <!-- Info Status Bar -->
     <div class="info-bar">
-        <span><span class="live-dot"></span>ಸೆಪ್ಟೆಂಬರ್ 2026ರ 14ನೇ ತಿಂಗಳ ಸೋಡ್ತಿ ಪ್ರಕ್ರಿಯೆ ಚಾಲನೆಯಲ್ಲಿದೆ... 🎲</span>
-        <span style="color: var(--live-color); font-size: 0.9rem;">● Draw In Progress</span>
+        <span><span class="live-dot"></span>ಸೆಪ್ಟೆಂಬರ್ 2026ರ 14ನೇ ತಿಂಗಳ ಸೋಡ್ತಿ ಪ್ರಕ್ರಿಯೆ ನಾಳೆ ಶುಕ್ರವಾರ (11-09-2026) ರಾತ್ರಿ ನಡೆಯಲಿದೆ 🎲</span>
+        <span style="color: var(--live-color); font-size: 0.9rem;">● Draw Tomorrow Night</span>
     </div>
 
     <!-- Stats Overview -->
@@ -539,25 +539,25 @@
     const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿಯ ರಸೀದಿಯನ್ನು ಕಳುಹಿಸುತ್ತಿದ್ದೇನೆ.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ (2, 6, 13, 18, 19, 20 ರವರ ಸೆಪ್ಟೆಂಬರ್ ಪಾವತಿ ಅಪ್ಡೇಟ್ ಮಾಡಲಾಗಿದೆ)
+    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ
     const memberData = [
-        { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidSeptember: false },           // 1
+        { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidSeptember: true },             // 1 - PAID
         { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidSeptember: true },            // 2 - PAID
-        { name: "ಮುಸ್ತಾಕ್ ಎ", paidSeptember: false },             // 3
+        { name: "ಮುಸ್ತಾಕ್ ಎ", paidSeptember: true },              // 3 - PAID
         { name: "ಸಲೀಂ ಜಿ", paidSeptember: false },             // 4
-        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidSeptember: false },        // 5
+        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidSeptember: true },         // 5 - PAID
         { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidSeptember: true },          // 6 - PAID
         { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidSeptember: false, customAmount: 55300 }, // 7
-        { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidSeptember: false },       // 8
-        { name: "ಮಶೂರ್ ಪಿ", paidSeptember: false },             // 9
-        { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidSeptember: false },        // 10
-        { name: "ರಾಶಿದ್ ಪಿ", paidSeptember: false },             // 11
-        { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidSeptember: false },       // 12
+        { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidSeptember: true },        // 8 - PAID
+        { name: "ಮಶೂರ್ ಪಿ", paidSeptember: true },              // 9 - PAID
+        { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidSeptember: true },         // 10 - PAID
+        { name: "ರಾಶಿದ್ ಪಿ", paidSeptember: true },              // 11 - PAID
+        { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidSeptember: true },        // 12 - PAID
         { name: "ಆಸಿಫ್ ಕೆ", paidSeptember: true },              // 13 - PAID
-        { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidSeptember: false },       // 14
-        { name: "ರಾಶಿದ್ ಪಿ", paidSeptember: false },             // 15
+        { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidSeptember: true },        // 14 - PAID
+        { name: "ರಾಶಿದ್ ಪಿ", paidSeptember: true },              // 15 - PAID
         { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidSeptember: false },     // 16
-        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidSeptember: false, customAmount: 54500 }, // 17
+        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidSeptember: true },           // 17 - PAID
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidSeptember: true },          // 18 - PAID
         { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidSeptember: true },          // 19 - PAID
         { name: "ಆಸಿಫ್ ಕೆ", paidSeptember: true }               // 20 - PAID
@@ -583,7 +583,7 @@
         11: "ಮಶೂರ್ ಪಿ (9)",
         12: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು (12)",
         13: "ಆಗಸ್ಟ್ ವಿಜೇತರು", 
-        14: "ಸೋಡ್ತಿ ಪ್ರಕ್ರಿಯೆ ಚಾಲನೆಯಲ್ಲಿದೆ 🎲"
+        14: "ಸೋಡ್ತಿ ನಾಳೆ ರಾತ್ರಿ (11-09-2026 Friday) 🎲"
     };
 
     const memberContainer = document.getElementById('member-container');
