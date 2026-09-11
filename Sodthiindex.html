@@ -363,7 +363,7 @@
             border-left: 5px solid #475569;
         }
 
-        /* 14ನೇ ತಿಂಗಳ ಗ್ರೀನ್ ಅನಿಮೇಶನ್ ಸ್ಟೈಲ್ */
+        /* 14ನೇ ತಿಂಗಳ ವಿಜೇತರಿಗೆ ಗ್ರೀನ್ ಅನಿಮೇಶನ್ ಸ್ಟೈಲ್ */
         .timeline-item.green-animation {
             border-left: 6px solid var(--live-color);
             background: linear-gradient(135deg, #f0fdf4 0%, #e8fbf7 100%);
@@ -464,8 +464,8 @@
 
     <!-- Info Status Bar -->
     <div class="info-bar">
-        <span><span class="live-dot"></span>ಸೆಪ್ಟೆಂಬರ್ 2026ರ 14ನೇ ತಿಂಗಳ ಸೋಡ್ತಿ ಪ್ರಕ್ರಿಯೆ ನಾಳೆ ಶುಕ್ರವಾರ (11-09-2026) ರಾತ್ರಿ ನಡೆಯಲಿದೆ 🎲</span>
-        <span style="color: var(--live-color); font-size: 0.9rem;">● Draw Tomorrow Night</span>
+        <span><span class="live-dot"></span>ಸೆಪ್ಟೆಂಬರ್ 2026ರ 14ನೇ ತಿಂಗಳ ಸೋಡ್ತಿ ಪ್ರಕ್ರಿಯೆ ಪೂರ್ಣಗೊಂಡಿದೆ 🎉</span>
+        <span style="color: var(--live-color); font-size: 0.9rem;">● Draw Completed</span>
     </div>
 
     <!-- Stats Overview -->
@@ -541,26 +541,26 @@
 
     // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ
     const memberData = [
-        { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidSeptember: true },             // 1 - PAID
-        { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidSeptember: true },            // 2 - PAID
-        { name: "ಮುಸ್ತಾಕ್ ಎ", paidSeptember: true },              // 3 - PAID
+        { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidSeptember: true },             // 1
+        { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidSeptember: true },            // 2
+        { name: "ಮುಸ್ತಾಕ್ ಎ", paidSeptember: true },              // 3
         { name: "ಸಲೀಂ ಜಿ", paidSeptember: false },             // 4
-        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidSeptember: true },         // 5 - PAID
-        { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidSeptember: true },          // 6 - PAID
+        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidSeptember: true },         // 5
+        { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidSeptember: true },          // 6
         { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidSeptember: false, customAmount: 55300 }, // 7
-        { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidSeptember: true },        // 8 - PAID
-        { name: "ಮಶೂರ್ ಪಿ", paidSeptember: true },              // 9 - PAID
-        { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidSeptember: true },         // 10 - PAID
-        { name: "ರಾಶಿದ್ ಪಿ", paidSeptember: true },              // 11 - PAID
-        { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidSeptember: true },        // 12 - PAID
-        { name: "ಆಸಿಫ್ ಕೆ", paidSeptember: true },              // 13 - PAID
-        { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidSeptember: true },        // 14 - PAID
-        { name: "ರಾಶಿದ್ ಪಿ", paidSeptember: true },              // 15 - PAID
+        { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidSeptember: true },        // 8
+        { name: "ಮಶೂರ್ ಪಿ", paidSeptember: true },              // 9
+        { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidSeptember: true },         // 10
+        { name: "ರಾಶಿದ್ ಪಿ", paidSeptember: true },              // 11
+        { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidSeptember: true },        // 12
+        { name: "ಆಸಿಫ್ ಕೆ", paidSeptember: true },              // 13
+        { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidSeptember: true },        // 14
+        { name: "ರಾಶಿದ್ ಪಿ", paidSeptember: true },              // 15
         { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidSeptember: false },     // 16
-        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidSeptember: true },           // 17 - PAID
-        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidSeptember: true },          // 18 - PAID
-        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidSeptember: true },          // 19 - PAID
-        { name: "ಆಸಿಫ್ ಕೆ", paidSeptember: true }               // 20 - PAID
+        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidSeptember: true },           // 17
+        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidSeptember: true },          // 18
+        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidSeptember: true },          // 19
+        { name: "ಆಸಿಫ್ ಕೆ", paidSeptember: true }               // 20
     ];
 
     const monthNames = [
@@ -583,7 +583,7 @@
         11: "ಮಶೂರ್ ಪಿ (9)",
         12: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು (12)",
         13: "ಆಗಸ್ಟ್ ವಿಜೇತರು", 
-        14: "ಸೋಡ್ತಿ ನಾಳೆ ರಾತ್ರಿ (11-09-2026 Friday) 🎲"
+        14: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ (17)" // ಸೆಪ್ಟೆಂಬರ್ ವಿಜೇತರು
     };
 
     const memberContainer = document.getElementById('member-container');
@@ -622,6 +622,7 @@
     for (let m = 14; m >= 1; m--) { 
         const item = document.createElement('div');
         
+        // 14ನೇ ತಿಂಗಳ ವಿಜೇತರಿಗೆ ಹಸಿರು ಆನಿಮೇಶನ್ ಗ್ಲೋ ಅನ್ವಯಿಸಲಾಗಿದೆ
         if (m === 14) {
             item.className = 'timeline-item green-animation';
         } else {
@@ -632,10 +633,10 @@
             <div class="timeline-dot"></div>
             <p class="timeline-title">
                 ತಿಂಗಳು ${m} — ${monthNames[m-1]} 
-                ${m === 14 ? '<span style="color:var(--live-color); font-weight:bold; margin-left:8px;">[🔴 LIVE DRAW]</span>' : ''}
+                ${m === 14 ? '<span style="color:var(--live-color); font-weight:bold; margin-left:8px;">[🏆 Winner]</span>' : ''}
             </p>
             <p class="timeline-winner" style="font-weight: bold;">
-                ${m === 14 ? '⏳ ' : '🎉 '}${historicalWinners[m]}
+                🎉 ${historicalWinners[m]}
             </p>
         `;
         winnerContainer.appendChild(item);
