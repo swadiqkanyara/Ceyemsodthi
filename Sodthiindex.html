@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="kn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEYEM2K25SODTHI KANYARAKODI - Advanced Premium Dashboard</title>
+    <title>CEYEM2K25SODTHI KANYARAKODI - ADVANCED PREMIUM DASHBOARD</title>
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
@@ -28,6 +28,7 @@
             color: var(--text-main);
             -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
+            text-transform: uppercase;
         }
 
         .container {
@@ -83,6 +84,38 @@
             font-size: 1.2rem;
             opacity: 0.85;
             font-weight: 400;
+        }
+
+        /* Highlight Winner Box */
+        .winner-highlight-box {
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
+            color: white;
+            padding: 20px;
+            border-radius: 18px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0, 180, 216, 0.3);
+            border: 2px solid #90e0ef;
+            animation: highlight-pulse 2.5s infinite alternate;
+        }
+
+        @keyframes highlight-pulse {
+            0% { transform: scale(1); box-shadow: 0 10px 25px rgba(0, 180, 216, 0.3); }
+            100% { transform: scale(1.01); box-shadow: 0 15px 35px rgba(0, 180, 216, 0.5); }
+        }
+
+        .winner-highlight-box h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: #caf0f8;
+        }
+
+        .winner-highlight-box h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ffffff;
         }
 
         /* Live Status Bar */
@@ -363,7 +396,6 @@
             border-left: 5px solid #475569;
         }
 
-        /* 14ನೇ ತಿಂಗಳ ವಿಜೇತರಿಗೆ ಗ್ರೀನ್ ಅನಿಮೇಶನ್ ಸ್ಟೈಲ್ */
         .timeline-item.green-animation {
             border-left: 6px solid var(--live-color);
             background: linear-gradient(135deg, #f0fdf4 0%, #e8fbf7 100%);
@@ -459,13 +491,19 @@
             <img src="https://i.postimg.co/7Yn0w9S2/1001547062.jpg" alt="Madavoor CM Makham">
         </div>
         <h1>CEYEM2K25SODTHI KANYARAKODI</h1>
-        <p>ಮಡವೂರು ಸಿ.ಎಂ. ವಲಿಯ್ಯಿಲ್ಲಾಹ್(ಖ) ಸೋಡ್ತಿ ಮತ್ತು ಚೀಟಿ ವ್ಯವಸ್ಥೆ</p>
+        <p>MADAVOOR C.M. VALIYYILLAH (Q.S) DRAW AND CHIT SYSTEM</p>
     </header>
+
+    <!-- Top Highlighted Current Month Winner Box -->
+    <div class="winner-highlight-box">
+        <h3>🏆 THIS MONTH'S DRAW WINNER (SEPTEMBER 2026 - 14TH DRAW)</h3>
+        <h2>🎉 DRAW NO. 17: IBRAHIM / RAZI 🎉</h2>
+    </div>
 
     <!-- Info Status Bar -->
     <div class="info-bar">
-        <span><span class="live-dot"></span>ಸೆಪ್ಟೆಂಬರ್ 2026ರ 14ನೇ ತಿಂಗಳ ಸೋಡ್ತಿ ಪ್ರಕ್ರಿಯೆ ಪೂರ್ಣಗೊಂಡಿದೆ 🎉</span>
-        <span style="color: var(--live-color); font-size: 0.9rem;">● Draw Completed</span>
+        <span><span class="live-dot"></span>SEPTEMBER 2026 14TH MONTH DRAW COMPLETED 🎉</span>
+        <span style="color: var(--live-color); font-size: 0.9rem;">● DRAW COMPLETED</span>
     </div>
 
     <!-- Stats Overview -->
@@ -473,28 +511,28 @@
         <a href="#members-section" class="stat-box clickable">
             <div class="stat-icon">🤝</div>
             <div class="stat-info">
-                <h3>ಒಟ್ಟು ಸದಸ್ಯರು</h3>
-                <p>20 ಜನರು</p>
+                <h3>TOTAL MEMBERS</h3>
+                <p>20 MEMBERS</p>
             </div>
         </a>
         <div class="stat-box">
             <div class="stat-icon">🪙</div>
             <div class="stat-info">
-                <h3>ತಿಂಗಳ ಚಂದಾ</h3>
+                <h3>MONTHLY SUBSCRIPTION</h3>
                 <p>₹ 5,000</p>
             </div>
         </div>
         <div class="stat-box">
             <div class="stat-icon">📈</div>
             <div class="stat-info">
-                <h3>ಪ್ರಸ್ತುತ ಅವಧಿ</h3>
-                <p>ತಿಂಗಳು 14 / 20</p>
+                <h3>CURRENT PERIOD</h3>
+                <p>MONTH 14 / 20</p>
             </div>
         </div>
         <div class="stat-box">
             <div class="stat-icon">💎</div>
             <div class="stat-info">
-                <h3>ಚೀಟಿ ಮೊತ್ತ</h3>
+                <h3>TOTAL CHIT AMOUNT</h3>
                 <p>₹ 1,00,000</p>
             </div>
         </div>
@@ -504,30 +542,30 @@
     <div class="layout-grid">
         <!-- Members Payments Grid -->
         <div class="section-card" id="members-section">
-            <h2>ಸದಸ್ಯರ ಚಂದಾ ಪಾವತಿ ವಿವರಗಳು</h2>
+            <h2>MEMBER SUBSCRIPTION PAYMENT DETAILS</h2>
             <div class="member-list" id="member-container"></div>
         </div>
 
         <!-- Winners History and Helpline -->
         <div>
             <div class="section-card">
-                <h2>ಸೋಡ್ತಿ ಇತಿಹಾಸ ಮತ್ತು ಪ್ರಸ್ತುತ ಸ್ಥಿತಿ</h2>
+                <h2>DRAW HISTORY & CURRENT STATUS</h2>
                 <div class="timeline" id="winner-container"></div>
             </div>
 
             <!-- Contact & Bank Details -->
             <div class="contact-box">
-                <h3 style="margin: 0 0 10px 0; font-size: 1.25rem; font-weight: 700;">ಬ್ಯಾಂಕ್ ಹಾಗೂ ಪಾವತಿ ವಿವರಗಳು 💳</h3>
+                <h3 style="margin: 0 0 10px 0; font-size: 1.25rem; font-weight: 700;">BANK & PAYMENT DETAILS 💳</h3>
                 
                 <div class="bank-details">
-                    <p style="margin: 3px 0;"><b>ಹೆಸರು:</b> MAHAMMAD SADIK K P</p>
-                    <p style="margin: 3px 0;"><b>ಖಾತೆ ಸಂಖ್ಯೆ:</b> 3633108002092</p>
-                    <p style="margin: 3px 0;"><b>IFSC Code:</b> CNRB0003633 (Canara Bank)</p>
-                    <p style="margin: 3px 0; color: #166534; font-weight: bold;">📲 GPay / PhonePe: +91 8277614329</p>
+                    <p style="margin: 3px 0;"><b>NAME:</b> MAHAMMAD SADIK K P</p>
+                    <p style="margin: 3px 0;"><b>ACCOUNT NO:</b> 3633108002092</p>
+                    <p style="margin: 3px 0;"><b>IFSC CODE:</b> CNRB0003633 (CANARA BANK)</p>
+                    <p style="margin: 3px 0; color: #166534; font-weight: bold;">📲 GPAY / PHONEPE: +91 8277614329</p>
                 </div>
 
                 <a id="whatsapp-link" href="#" target="_blank" class="whatsapp-btn">
-                    <span style="margin-right: 10px; font-size: 1.2rem;">💬</span> ವಾಟ್ಸಾಪ್ ಸಹಾಯವಾಣಿ
+                    <span style="margin-right: 10px; font-size: 1.2rem;">💬</span> WHATSAPP HELPLINE
                 </a>
             </div>
         </div>
@@ -536,54 +574,54 @@
 
 <script>
     const WHATSAPP_NUMBER = "918277614329"; 
-    const WHATSAPP_MSG = encodeURIComponent("ಹಲೋ ಅಡ್ಮಿನ್, ನನ್ನ ಚೀಟಿ ಪಾವತಿಯ ರಸೀದಿಯನ್ನು ಕಳುಹಿಸುತ್ತಿದ್ದೇನೆ.");
+    const WHATSAPP_MSG = encodeURIComponent("HELLO ADMIN, SENDING MY CHIT SUBSCRIPTION PAYMENT RECEIPT.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // ಸದಸ್ಯರ ಪಾವತಿ ಪಟ್ಟಿ
+    // MEMBER PAYMENT DATA
     const memberData = [
-        { name: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ", paidSeptember: true },             // 1
-        { name: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ", paidSeptember: true },            // 2
-        { name: "ಮುಸ್ತಾಕ್ ಎ", paidSeptember: true },              // 3
-        { name: "ಸಲೀಂ ಜಿ", paidSeptember: false },             // 4
-        { name: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ", paidSeptember: true },         // 5
-        { name: "ಸಾದಿಕ್ ನ‌ಈಮಿ", paidSeptember: true },          // 6
-        { name: "ಶಮ್ನಾ ಫಾತಿಮಾ", paidSeptember: false, customAmount: 55300 }, // 7
-        { name: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್", paidSeptember: true },        // 8
-        { name: "ಮಶೂರ್ ಪಿ", paidSeptember: true },              // 9
-        { name: "ಮುಸ್ತಫಾ ಹಿಕಮಿ", paidSeptember: true },         // 10
-        { name: "ರಾಶಿದ್ ಪಿ", paidSeptember: true },              // 11
-        { name: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು", paidSeptember: true },        // 12
-        { name: "ಆಸಿಫ್ ಕೆ", paidSeptember: true },              // 13
-        { name: "ಹಮೀದ್ ಉಸ್ತಾದ್", paidSeptember: true },        // 14
-        { name: "ರಾಶಿದ್ ಪಿ", paidSeptember: true },              // 15
-        { name: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್", paidSeptember: false },     // 16
-        { name: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ", paidSeptember: true },           // 17
-        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidSeptember: true },          // 18
-        { name: "ಅನ್ಸಾರ್ ಟಿ ಎಂ", paidSeptember: true },          // 19
-        { name: "ಆಸಿಫ್ ಕೆ", paidSeptember: true }               // 20
+        { name: "SWADIQ SAADI", paidSeptember: true },              // 1
+        { name: "SA'AD SAADI", paidSeptember: true },              // 2
+        { name: "MUSTHAQ A", paidSeptember: true },                // 3
+        { name: "SALEEM G", paidSeptember: false },                // 4
+        { name: "USMAN NIZAMI", paidSeptember: true },            // 5
+        { name: "SADIQ NAEEMI", paidSeptember: true },             // 6
+        { name: "SHAMNA FATHIMA", paidSeptember: false, customAmount: 55300 }, // 7
+        { name: "MANSOOR USTHAD", paidSeptember: true },          // 8
+        { name: "MASHOOR P", paidSeptember: true },                // 9
+        { name: "MUSTHAFA HIKAMI", paidSeptember: true },          // 10
+        { name: "RASHID P", paidSeptember: true },                 // 11
+        { name: "HYDER UDDABETTU", paidSeptember: true },          // 12
+        { name: "ASIF K", paidSeptember: true },                   // 13
+        { name: "HAMEED USTHAD", paidSeptember: true },           // 14
+        { name: "RASHID P", paidSeptember: true },                 // 15
+        { name: "SIDDIQ ENGINEER", paidSeptember: false },        // 16
+        { name: "IBRAHIM / RAZI", paidSeptember: true },           // 17
+        { name: "ANSAR T M", paidSeptember: true },                // 18
+        { name: "ANSAR T M", paidSeptember: true },                // 19
+        { name: "ASIF K", paidSeptember: true }                    // 20
     ];
 
     const monthNames = [
-        "ಆಗಸ್ಟ್ 2025", "ಸೆಪ್ಟೆಂಬರ್ 2025", "ಅಕ್ಟೋಬರ್ 2025", "ನವೆಂಬರ್ 2025", "ಡಿಸೆಂಬರ್ 2025",
-        "ಜನವರಿ 2026", "ಫೆಬ್ರವರಿ 2026", "ಮಾರ್ಚ್ 2026", "ಏಪ್ರಿಲ್ 2026", "ಮೇ 2026",
-        "ಜೂನ್ 2026", "ಜುಲೈ 2026", "ಆಗಸ್ಟ್ 2026", "ಸೆಪ್ಟೆಂಬರ್ 2026"
+        "AUGUST 2025", "SEPTEMBER 2025", "OCTOBER 2025", "NOVEMBER 2025", "DECEMBER 2025",
+        "JANUARY 2026", "FEBRUARY 2026", "MARCH 2026", "APRIL 2026", "MAY 2026",
+        "JUNE 2026", "JULY 2026", "AUGUST 2026", "SEPTEMBER 2026"
     ];
 
     const historicalWinners = {
-        1: "ಸ್ವಾದಿಕ್ ಸ‌ಅದಿ (1)",
-        2: "ಸಿದ್ದೀಕ್ ಇಂಜಿನಿಯರ್ (16)",
-        3: "ಹಮೀದ್ ಉಸ್ತಾದ್ (14)",
-        4: "ರಾಶಿದ್ ಪಿ (11)",
-        5: "ಮನ್ಸೂರ್ ಉಸ್ತಾದ್ (8)",
-        6: "ಆಸಿಫ್ ಕೆ (13)",
-        7: "ಉಸ್ಮಾನ್ ನಿಝಾಮಿ (5)",
-        8: "ಸಲೀಂ ಜಿ (4)",
-        9: "ಸ‌ಅದ್ ‌ಸ‌ಅದಿ (2)",
-        10: "ಅನ್ಸಾರ್ ಟಿ ಎಂ (18)",
-        11: "ಮಶೂರ್ ಪಿ (9)",
-        12: "ಹೈದರ್ ಉದ್ದಬೆಟ್ಟು (12)",
-        13: "ಆಗಸ್ಟ್ ವಿಜೇತರು", 
-        14: "ಇಬ್ರಾಹೀಂ/ರಾಝಿ (17)" // ಸೆಪ್ಟೆಂಬರ್ ವಿಜೇತರು
+        1: "SWADIQ SAADI (1)",
+        2: "SIDDIQ ENGINEER (16)",
+        3: "HAMEED USTHAD (14)",
+        4: "RASHID P (11)",
+        5: "MANSOOR USTHAD (8)",
+        6: "ASIF K (13)",
+        7: "USMAN NIZAMI (5)",
+        8: "SALEEM G (4)",
+        9: "SA'AD SAADI (2)",
+        10: "ANSAR T M (18)",
+        11: "MASHOOR P (9)",
+        12: "HYDER UDDABETTU (12)",
+        13: "AUGUST WINNER", 
+        14: "IBRAHIM / RAZI (17)"
     };
 
     const memberContainer = document.getElementById('member-container');
@@ -594,11 +632,11 @@
 
         if (isCustom) {
             totalAmountPaid = member.customAmount;
-            badgeText = 'Partially Paid';
+            badgeText = 'PARTIALLY PAID';
         } else {
             const totalMonthsPaid = member.paidSeptember ? 14 : 13;
             totalAmountPaid = totalMonthsPaid * 5000;
-            badgeText = member.paidSeptember ? 'Paid (14M)' : 'Pending (13M)';
+            badgeText = member.paidSeptember ? 'PAID (14M)' : 'PENDING (13M)';
         }
 
         const item = document.createElement('div');
@@ -622,7 +660,6 @@
     for (let m = 14; m >= 1; m--) { 
         const item = document.createElement('div');
         
-        // 14ನೇ ತಿಂಗಳ ವಿಜೇತರಿಗೆ ಹಸಿರು ಆನಿಮೇಶನ್ ಗ್ಲೋ ಅನ್ವಯಿಸಲಾಗಿದೆ
         if (m === 14) {
             item.className = 'timeline-item green-animation';
         } else {
@@ -632,8 +669,8 @@
         item.innerHTML = `
             <div class="timeline-dot"></div>
             <p class="timeline-title">
-                ತಿಂಗಳು ${m} — ${monthNames[m-1]} 
-                ${m === 14 ? '<span style="color:var(--live-color); font-weight:bold; margin-left:8px;">[🏆 Winner]</span>' : ''}
+                MONTH ${m} — ${monthNames[m-1]} 
+                ${m === 14 ? '<span style="color:var(--live-color); font-weight:bold; margin-left:8px;">[🏆 WINNER]</span>' : ''}
             </p>
             <p class="timeline-winner" style="font-weight: bold;">
                 🎉 ${historicalWinners[m]}
