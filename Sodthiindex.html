@@ -496,14 +496,14 @@
 
     <!-- Top Highlighted Current Month Winner Box -->
     <div class="winner-highlight-box">
-        <h3>🏆 THIS MONTH'S DRAW WINNER (SEPTEMBER 2026 - 14TH DRAW)</h3>
+        <h3>🏆 PREVIOUS MONTH'S DRAW WINNER (SEPTEMBER 2026 - 14TH DRAW)</h3>
         <h2>🎉 DRAW NO. 17: IBRAHIM / RAZI 🎉</h2>
     </div>
 
     <!-- Info Status Bar -->
     <div class="info-bar">
-        <span><span class="live-dot"></span>SEPTEMBER 2026 14TH MONTH DRAW COMPLETED 🎉</span>
-        <span style="color: var(--live-color); font-size: 0.9rem;">● DRAW COMPLETED</span>
+        <span><span class="live-dot"></span>OCTOBER 2026 15TH MONTH COLLECTION IN PROGRESS ⏳</span>
+        <span style="color: var(--live-color); font-size: 0.9rem;">● ACTIVE COLLECTION</span>
     </div>
 
     <!-- Stats Overview -->
@@ -526,7 +526,7 @@
             <div class="stat-icon">📈</div>
             <div class="stat-info">
                 <h3>CURRENT PERIOD</h3>
-                <p>MONTH 14 / 20</p>
+                <p>MONTH 15 / 20</p>
             </div>
         </div>
         <div class="stat-box">
@@ -542,7 +542,7 @@
     <div class="layout-grid">
         <!-- Members Payments Grid -->
         <div class="section-card" id="members-section">
-            <h2>MEMBER SUBSCRIPTION PAYMENT DETAILS</h2>
+            <h2>MEMBER SUBSCRIPTION PAYMENT DETAILS (OCTOBER 2026)</h2>
             <div class="member-list" id="member-container"></div>
         </div>
 
@@ -574,37 +574,37 @@
 
 <script>
     const WHATSAPP_NUMBER = "918277614329"; 
-    const WHATSAPP_MSG = encodeURIComponent("HELLO ADMIN, SENDING MY CHIT SUBSCRIPTION PAYMENT RECEIPT.");
+    const WHATSAPP_MSG = encodeURIComponent("HELLO ADMIN, SENDING MY CHIT SUBSCRIPTION PAYMENT RECEIPT FOR OCTOBER 2026.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // MEMBER PAYMENT DATA
+    // MEMBER PAYMENT DATA (UPDATED FOR OCTOBER 2026 - 15TH MONTH)
     const memberData = [
-        { name: "SWADIQ SAADI", paidSeptember: true },              // 1
-        { name: "SA'AD SAADI", paidSeptember: true },              // 2
-        { name: "MUSTHAQ A", paidSeptember: true },                // 3
-        { name: "SALEEM G", paidSeptember: false },                // 4
-        { name: "USMAN NIZAMI", paidSeptember: true },            // 5
-        { name: "SADIQ NAEEMI", paidSeptember: true },             // 6
-        { name: "SHAMNA FATHIMA", paidSeptember: false, customAmount: 55300 }, // 7
-        { name: "MANSOOR USTHAD", paidSeptember: true },          // 8
-        { name: "MASHOOR P", paidSeptember: true },                // 9
-        { name: "MUSTHAFA HIKAMI", paidSeptember: true },          // 10
-        { name: "RASHID P", paidSeptember: true },                 // 11
-        { name: "HYDER UDDABETTU", paidSeptember: true },          // 12
-        { name: "ASIF K", paidSeptember: true },                   // 13
-        { name: "HAMEED USTHAD", paidSeptember: true },           // 14
-        { name: "RASHID P", paidSeptember: true },                 // 15
-        { name: "SIDDIQ ENGINEER", paidSeptember: false },        // 16
-        { name: "IBRAHIM / RAZI", paidSeptember: true },           // 17
-        { name: "ANSAR T M", paidSeptember: true },                // 18
-        { name: "ANSAR T M", paidSeptember: true },                // 19
-        { name: "ASIF K", paidSeptember: true }                    // 20
+        { name: "SWADIQ SAADI", paidOctober: false },              // 1
+        { name: "SA'AD SAADI", paidOctober: true },               // 2 ✅
+        { name: "MUSTHAQ A", paidOctober: false },                // 3
+        { name: "SALEEM G", paidOctober: false },                 // 4
+        { name: "USMAN NIZAMI", paidOctober: false },             // 5
+        { name: "SADIQ NAEEMI", paidOctober: false },              // 6
+        { name: "SHAMNA FATHIMA", paidOctober: false, customAmount: 55300 }, // 7
+        { name: "MANSOOR USTHAD", paidOctober: false },           // 8
+        { name: "MASHOOR P", paidOctober: false },                 // 9
+        { name: "MUSTHAFA HIKAMI", paidOctober: true },           // 10 ✅
+        { name: "RASHID P", paidOctober: true },                  // 11 ✅
+        { name: "HYDER UDDABETTU", paidOctober: false },           // 12
+        { name: "ASIF K", paidOctober: true },                    // 13 ✅
+        { name: "HAMEED USTHAD", paidOctober: true },            // 14 ✅
+        { name: "RASHID P", paidOctober: true },                  // 15 ✅
+        { name: "SIDDIQ ENGINEER", paidOctober: false },         // 16
+        { name: "IBRAHIM / RAZI", paidOctober: false },            // 17
+        { name: "ANSAR T M", paidOctober: true },                 // 18 ✅
+        { name: "ANSAR T M", paidOctober: true },                 // 19 ✅
+        { name: "ASIF K", paidOctober: true }                     // 20 ✅
     ];
 
     const monthNames = [
         "AUGUST 2025", "SEPTEMBER 2025", "OCTOBER 2025", "NOVEMBER 2025", "DECEMBER 2025",
         "JANUARY 2026", "FEBRUARY 2026", "MARCH 2026", "APRIL 2026", "MAY 2026",
-        "JUNE 2026", "JULY 2026", "AUGUST 2026", "SEPTEMBER 2026"
+        "JUNE 2026", "JULY 2026", "AUGUST 2026", "SEPTEMBER 2026", "OCTOBER 2026"
     ];
 
     const historicalWinners = {
@@ -621,7 +621,8 @@
         11: "MASHOOR P (9)",
         12: "HYDER UDDABETTU (12)",
         13: "AUGUST WINNER", 
-        14: "IBRAHIM / RAZI (17)"
+        14: "IBRAHIM / RAZI (17)",
+        15: "OCTOBER DRAW PENDING"
     };
 
     const memberContainer = document.getElementById('member-container');
@@ -634,9 +635,9 @@
             totalAmountPaid = member.customAmount;
             badgeText = 'PARTIALLY PAID';
         } else {
-            const totalMonthsPaid = member.paidSeptember ? 14 : 13;
+            const totalMonthsPaid = member.paidOctober ? 15 : 14;
             totalAmountPaid = totalMonthsPaid * 5000;
-            badgeText = member.paidSeptember ? 'PAID (14M)' : 'PENDING (13M)';
+            badgeText = member.paidOctober ? 'PAID (15M)' : 'PENDING (14M)';
         }
 
         const item = document.createElement('div');
@@ -647,7 +648,7 @@
                 <div class="member-name ${isCustom ? 'text-red' : ''}">${member.name}</div>
             </div>
             <div class="member-right">
-                <span class="badge ${member.paidSeptember ? 'badge-paid' : 'badge-pending'} ${isCustom ? 'text-red' : ''}">
+                <span class="badge ${member.paidOctober ? 'badge-paid' : 'badge-pending'} ${isCustom ? 'text-red' : ''}">
                     ${badgeText}
                 </span>
                 <span class="amount-display ${isCustom ? 'text-red' : ''}">₹ ${totalAmountPaid.toLocaleString('en-IN')}</span>
@@ -657,7 +658,7 @@
     });
 
     const winnerContainer = document.getElementById('winner-container');
-    for (let m = 14; m >= 1; m--) { 
+    for (let m = 15; m >= 1; m--) { 
         const item = document.createElement('div');
         
         if (m === 14) {
@@ -673,7 +674,7 @@
                 ${m === 14 ? '<span style="color:var(--live-color); font-weight:bold; margin-left:8px;">[🏆 WINNER]</span>' : ''}
             </p>
             <p class="timeline-winner" style="font-weight: bold;">
-                🎉 ${historicalWinners[m]}
+                ${m === 15 ? '⏳ ' : '🎉 '}${historicalWinners[m]}
             </p>
         `;
         winnerContainer.appendChild(item);
