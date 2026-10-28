@@ -496,14 +496,14 @@
 
     <!-- Top Highlighted Current Month Winner Box -->
     <div class="winner-highlight-box">
-        <h3>🏆 PREVIOUS MONTH'S DRAW WINNER (SEPTEMBER 2026 - 14TH DRAW)</h3>
-        <h2>🎉 DRAW NO. 17: IBRAHIM / RAZI 🎉</h2>
+        <h3>🏆 THIS MONTH'S DRAW WINNER (OCTOBER 2026 - 15TH DRAW)</h3>
+        <h2>🎉 DRAW NO. 3: MUSTHAQ A 🎉</h2>
     </div>
 
     <!-- Info Status Bar -->
     <div class="info-bar">
-        <span><span class="live-dot"></span>OCTOBER 2026 15TH MONTH COLLECTION IN PROGRESS ⏳</span>
-        <span style="color: var(--live-color); font-size: 0.9rem;">● ACTIVE COLLECTION</span>
+        <span><span class="live-dot"></span>OCTOBER 2026 15TH MONTH DRAW COMPLETED 🎉</span>
+        <span style="color: var(--live-color); font-size: 0.9rem;">● DRAW COMPLETED</span>
     </div>
 
     <!-- Stats Overview -->
@@ -577,25 +577,25 @@
     const WHATSAPP_MSG = encodeURIComponent("HELLO ADMIN, SENDING MY CHIT SUBSCRIPTION PAYMENT RECEIPT FOR OCTOBER 2026.");
     document.getElementById('whatsapp-link').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
-    // MEMBER PAYMENT DATA (UPDATED FOR OCTOBER 2026 - 15TH MONTH)
+    // MEMBER PAYMENT DATA (ALL PAID FOR OCTOBER 2026 - 15TH MONTH)
     const memberData = [
-        { name: "SWADIQ SAADI", paidOctober: false },              // 1
+        { name: "SWADIQ SAADI", paidOctober: true },              // 1 ✅
         { name: "SA'AD SAADI", paidOctober: true },               // 2 ✅
-        { name: "MUSTHAQ A", paidOctober: false },                // 3
-        { name: "SALEEM G", paidOctober: false },                 // 4
-        { name: "USMAN NIZAMI", paidOctober: false },             // 5
-        { name: "SADIQ NAEEMI", paidOctober: false },              // 6
-        { name: "SHAMNA FATHIMA", paidOctober: false, customAmount: 55300 }, // 7
-        { name: "MANSOOR USTHAD", paidOctober: false },           // 8
-        { name: "MASHOOR P", paidOctober: false },                 // 9
+        { name: "MUSTHAQ A", paidOctober: true },                // 3 ✅
+        { name: "SALEEM G", paidOctober: true },                  // 4 ✅
+        { name: "USMAN NIZAMI", paidOctober: true },             // 5 ✅
+        { name: "SADIQ NAEEMI", paidOctober: true },              // 6 ✅
+        { name: "SHAMNA FATHIMA", paidOctober: false, customAmount: 55300 }, // 7 ✅ (Partial)
+        { name: "MANSOOR USTHAD", paidOctober: true },           // 8 ✅
+        { name: "MASHOOR P", paidOctober: true },                 // 9 ✅
         { name: "MUSTHAFA HIKAMI", paidOctober: true },           // 10 ✅
         { name: "RASHID P", paidOctober: true },                  // 11 ✅
-        { name: "HYDER UDDABETTU", paidOctober: false },           // 12
+        { name: "HYDER UDDABETTU", paidOctober: true },           // 12 ✅
         { name: "ASIF K", paidOctober: true },                    // 13 ✅
         { name: "HAMEED USTHAD", paidOctober: true },            // 14 ✅
         { name: "RASHID P", paidOctober: true },                  // 15 ✅
-        { name: "SIDDIQ ENGINEER", paidOctober: false },         // 16
-        { name: "IBRAHIM / RAZI", paidOctober: false },            // 17
+        { name: "SIDDIQ ENGINEER", paidOctober: true },          // 16 ✅
+        { name: "IBRAHIM / RAZI", paidOctober: true },            // 17 ✅
         { name: "ANSAR T M", paidOctober: true },                 // 18 ✅
         { name: "ANSAR T M", paidOctober: true },                 // 19 ✅
         { name: "ASIF K", paidOctober: true }                     // 20 ✅
@@ -622,7 +622,7 @@
         12: "HYDER UDDABETTU (12)",
         13: "AUGUST WINNER", 
         14: "IBRAHIM / RAZI (17)",
-        15: "OCTOBER DRAW PENDING"
+        15: "MUSTHAQ A (3)"
     };
 
     const memberContainer = document.getElementById('member-container');
@@ -661,7 +661,7 @@
     for (let m = 15; m >= 1; m--) { 
         const item = document.createElement('div');
         
-        if (m === 14) {
+        if (m === 15) {
             item.className = 'timeline-item green-animation';
         } else {
             item.className = 'timeline-item';
@@ -671,10 +671,10 @@
             <div class="timeline-dot"></div>
             <p class="timeline-title">
                 MONTH ${m} — ${monthNames[m-1]} 
-                ${m === 14 ? '<span style="color:var(--live-color); font-weight:bold; margin-left:8px;">[🏆 WINNER]</span>' : ''}
+                ${m === 15 ? '<span style="color:var(--live-color); font-weight:bold; margin-left:8px;">[🏆 WINNER]</span>' : ''}
             </p>
             <p class="timeline-winner" style="font-weight: bold;">
-                ${m === 15 ? '⏳ ' : '🎉 '}${historicalWinners[m]}
+                🎉 ${historicalWinners[m]}
             </p>
         `;
         winnerContainer.appendChild(item);
